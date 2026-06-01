@@ -73,18 +73,24 @@ description: 변경된 코드가 팀 수준의 컨벤션을 준수하는지 검�
 - View는 데이터 바인딩을 위해 `StateHolder`에 직접 바인딩하고, UI 이벤트를 위해 ViewModel `eventStream`을 구독함.
 - 스크린 간 공유 데이터는 공유 ViewModel이 아닌 `Store`/`StateHolder`를 사용함.
 
-### 5. Result · Either & 에러 처리
+### 5. Result & 에러 처리
 
 #### 계층별 반환 타입
 - Repository(데이터 facing 작업)는 `Result<T>`(`Succeed` / `Failed(Failure)` / `NotFound`)를 반환함. `BaseRepository.execute` 가 저수준 예외를 `Failure` 로 변환해 감쌈.
 - **Repository 는 결과를 해석해 어떤 `Result` 를 골라 반환하지 않음.** API/DAO 가 준 사실만 그대로 `Result` 로 올림 (비즈니스 의미 부여 금지).
 - **`execute` 블록 안에서 `Result.succeed`/`Result.failed`/`Result.notFound` 인스턴스를 직접 만들지 않음.** 블록은 도메인 모델 값(`T`)을 반환하거나(값이 없으면 `null` → `execute` 가 `NotFound` 로), 실패면 `throw` 함(→ `execute` 가 `Failed` 로 변환). 블록 안에서 `Result` 를 직접 만든다는 것은 **해석이 들어갔다는 신호**이고, 그 해석은 `execute` 를 우회하는 것이므로 UseCase 로 옮김 (§6). 직접 만들 거면 `execute` 를 쓸 이유가 없음.
-- **결과가 단순 성공/실패로 갈리지 않아 별도 해석이 필요하면(예: `NotFound`·특정 에러코드를 화면 의미로 바꿔야 하면) 반드시 UseCase 를 만든다.** UseCase 가 Repository 의 `Result` 를 해석해 **`Either<Failure, T>`(fpdart) 로 반환**함 (§6).
-- 해석이 필요 없는 단순 조회/mutation 은 UseCase 없이 ViewModel/StateHolder 가 Repository 의 `Result` 를 직접 소비함. UseCase 를 만들었으면 ViewModel/View 는 그 `Either` 를 `.fold(onLeft, onRight)` 로 소비함.
+- **결과가 단순 성공/실패로 갈리지 않아 별도 해석이 필요하면(예: `NotFound`·특정 에러코드를 화면 의미로 바꿔야 하면) 반드시 UseCase 를 만든다.** UseCase 가 Repository 의 `Result` 를 해석한 뒤 **다시 `Result<T>` 로 반환**함 (§6). (repository·usecase 가 같은 `Result` 타입을 쓰므로 VM 은 주입 대상과 무관하게 동일 idiom 으로 소비.)
+- 소비 측(ViewModel/StateHolder)은 repository·usecase 가 준 `Result` 를 동일하게 소비함 — `BaseViewModel` 의 `runSingleTask*`/`withMessage`/`runWithLoading` 헬퍼로 감싸거나, 아래 case/is 룰로 직접 분기.
+- **`Result`(또는 sealed 타입) 소비 스타일**: 분기 안에서 **값을 꺼내면 `case` 패턴으로 구조분해**, **값이 필요 없으면 `is` 타입 체크**를 쓴다.
+  ```dart
+  if (result case Succeed(:final data)) { use(data); }  // 값 사용 → case
+  if (result is Succeed) { notifyListeners(); }          // 값 불필요 → is
+  ```
+  세 분기를 모두 다뤄야 하면 `switch`+패턴으로 exhaustive 하게 처리한다(§8).
 - 도메인 경계를 넘는 raw `Future`·thrown 예외·DTO 는 없음.
 
 #### try-catch 사용 제한
-- **`domain`(단 `BaseRepository` = `repository_base.dart` 는 예외)·`view` 에서는 try-catch 를 절대 사용하지 않음.** 두 계층은 예외를 잡지 않고 `Result`/`Either` 만 소비함. 플랫폼/하드웨어 호출(카메라·ML Kit 등)도 `data` source 로 내려 `Result` 로 변환받고, ViewModel 은 그 결과만 소비함.
+- **`domain`(단 `BaseRepository` = `repository_base.dart` 는 예외)·`view` 에서는 try-catch 를 절대 사용하지 않음.** 두 계층은 예외를 잡지 않고 `Result` 만 소비함. 플랫폼/하드웨어 호출(카메라·ML Kit 등)도 `data` source 로 내려 `Result` 로 변환받고, ViewModel 은 그 결과만 소비함.
 - try-catch 의 기본 위치는 **`BaseRepository.execute` 하나**다. 모든 저수준 예외는 여기서 `Failure` 로 변환됨.
 - 유일한 추가 허용 지점은 `data` 레이어의 **mapper** 로, 파싱 등으로 불가피한 경우다. 이때도 **사용자에게 확인받은 뒤** 사용함 (무단 추가 금지).
 
@@ -94,29 +100,29 @@ description: 변경된 코드가 팀 수준의 컨벤션을 준수하는지 검�
 - **Repository 의 `Result` 를 단순 성공/실패로 소비할 수 없고 별도 해석이 필요할 때만** 만든다 (예: `NotFound` 를 화면 의미로 변환, 특정 에러코드를 구분, 같은 결과를 화면별로 다르게 해석). 단순 list 조회·단순 mutation 에는 만들지 않음.
 - Repository 가 `execute` 안에서 `Result` 를 직접 만들거나 결과를 해석하려는 충동이 보이면(§5), 그 해석은 UseCase 로 옮긴다.
 
-#### 반환 타입 — `Either<Failure, T>` (fpdart)
-- UseCase 는 Repository 의 `Result<T>` 를 받아 해석한 뒤 **`Either<Failure, T>`(fpdart) 를 반환**함. `Succeed` → `Right(data)`, `Failed` → `Left(failure)`(에러코드 등 구분 가능), `NotFound` → `Left(FeatureFailure(...))` 로 매핑.
-- ViewModel/View 는 이 `Either` 를 `.fold(onLeft, onRight)` 로 소비함. (해석이 불필요해 UseCase 가 없는 경우만 ViewModel/StateHolder 가 Repository 의 `Result` 를 직접 소비.)
+#### 반환 타입 — `Result<T>` (해석 후 재반환)
+- UseCase 는 Repository 의 `Result<T>` 를 받아 해석한 뒤 **다시 `Result<T>` 로 반환**함. `NotFound`·특정 에러코드를 화면 의미의 `Failed(Failure)` 로 매핑하고, 그 외 `Succeed`/`Failed` 는 passthrough. (repository 와 동일 타입 → 소비 측 단일 idiom + `BaseViewModel` 헬퍼 재사용.)
 - 표준 형태:
   ```dart
-  Future<Either<Failure, OrderModel>> placeOrder(...) async {
-    final result = await _repository.createOrder(...);   // Result<T>
+  Future<Result<OrderModel>> placeOrder(...) async {
+    final result = await _repository.createOrder(...);
     return _interpretResult(result, FeatureFailureType.orderCreateNotFound);
   }
 
-  Either<Failure, OrderModel> _interpretResult(
+  Result<OrderModel> _interpretResult(
       Result<OrderModel> result, FeatureFailureType notFoundFallback) {
     return switch (result) {
-      Succeed(:final data) => Right(data),
       Failed(:final failure)
           when failure is ServerFailure &&
               failure.code == ServerErrorCode.duplicateKey =>
-        Left(const FeatureFailure(FeatureFailureType.orderDuplicated)),
-      Failed(:final failure) => Left(failure),
-      NotFound() => Left(FeatureFailure(notFoundFallback)),
+        Result.failed(const FeatureFailure(FeatureFailureType.orderDuplicated)),
+      NotFound() => Result.failed(FeatureFailure(notFoundFallback)),
+      Succeed() => result,
+      Failed() => result,
     };
   }
   ```
+  (UseCase 는 `execute` 가 아니므로 해석 결과로 `Result.failed/succeed` 를 직접 만드는 것은 정상 — §5 의 "execute 블록 내 Result 직접 생성 금지" 와 구분.)
 
 #### 구조·배치
 - UseCase 파일은 `lib/domain/{feature}/usecase/usecase_{feature}.dart`에 위치함 (도메인 단위 명명).
@@ -177,6 +183,18 @@ description: 변경된 코드가 팀 수준의 컨벤션을 준수하는지 검�
 - `build()`, getter, 생성자 내부에 숨겨진 사이드 이펙트 없음. 사이드 이펙트는 라이프사이클 메서드나 명시적 액션 메서드에 속함.
 - 메서드 동작을 암묵적으로 변경하는 불리언 파라미터 지양. 메서드에 두 가지 모드가 있다면 명확한 이름을 가진 두 개의 메서드를 고려함.
 - 조건 분기는 자명함. 조건이 정신적 해독을 요구한다면 잘 명명된 불리언 변수나 메서드로 추출함.
+- **여러 절이 `&&`/`||` 로 이어진 긴/복합 조건문은 의도를 드러내는 named getter·메서드로 추출한다.** 조건이 "무엇을 묻는지" 한 줄로 안 읽히면 추출 신호이고, 추출된 이름이 조건의 의도를 대신 설명한다.
+  ```dart
+  // 안 좋음 — 가드가 무엇을 막는지 한눈에 안 읽힘
+  if (controller == null ||
+      !controller.value.isInitialized ||
+      controller.value.isTakingPicture) {
+    return;
+  }
+  // 좋음 — 이름이 의도를 설명
+  if (!_canCapture) return;
+  bool get _canCapture { ... }
+  ```
 
 #### 일관된 추상화 수준
 - 각 메서드는 단일 추상화 수준에서 동작함. 같은 메서드 본문에 고수준 오케스트레이션과 저수준 세부 사항을 혼합하지 않음.

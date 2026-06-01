@@ -56,7 +56,7 @@ description: 도메인 레이어 가이드 — 프레임워크 비종속 모델,
 - UseCase 클래스는 **도메인 단위로 묶는다**: `{Domain}UseCase` (예: `OrderUseCase` 에 `createOrder`/`updateOrder` 메서드). 동작별로 클래스를 쪼개지 않는다.
 - UseCase 파일은 `lib/domain/{feature}/usecase/usecase_{feature}.dart` 에 둔다 (도메인 단위 명명).
 - UseCase DI 는 `lib/domain/di/module_usecase.dart` 에서 관리한다.
-- UseCase 는 Repository 를 주입받아 호출하고, 화면별 의미에 맞게 `Result`(`NotFound`/`Failed` 등)를 해석한 뒤 **`Either<Failure, T>`(fpdart) 로 반환한다.** (`Succeed` → `Right(data)`, `Failed`/`NotFound` → `Left(Failure)`)
+- UseCase 는 Repository 를 주입받아 호출하고, 화면별 의미에 맞게 `Result` 를 해석한 뒤 **다시 `Result<T>` 로 반환한다.** (`NotFound`·특정 에러코드 → 화면 의미의 `Failed(Failure)`, 그 외 `Succeed`/`Failed` 는 passthrough)
 - UseCase 가 Repository 를 주입받는다면, 같은 도메인의 ViewModel/StateHolder 는 그 Repository 를 중복 주입받지 않고 UseCase 만 주입받는다. dismiss·delete 같은 단순 mutation 도 같은 도메인의 UseCase 메서드로 노출한다.
 
 ### MUST NOT
@@ -66,35 +66,35 @@ description: 도메인 레이어 가이드 — 프레임워크 비종속 모델,
 - UseCase 는 `BuildContext`, `Navigator` 같은 View 레이어 의존성을 사용하지 않는다.
 - UseCase·도메인 모델·repository 인터페이스에 **try-catch 를 사용하지 않는다** (예외→`Failure` 변환은 `BaseRepository.execute` 전담).
 
-### Result → Either 해석 패턴
+### Result 해석 패턴
 
-Repository 는 `Result<T>` (raw 사실) 를 올리고, UseCase 가 화면 의미로 해석해 `Either<Failure, T>` (fpdart) 를 반환한다. `Succeed` → `Right(data)`, `Failed`(에러코드 등 구분 가능) / `NotFound` → `Left(Failure)`.
+Repository 는 `Result<T>` (raw 사실) 를 올리고, UseCase 가 화면 의미로 해석한 뒤 **다시 `Result<T>` 로 반환**한다. `NotFound`·특정 에러코드를 화면 의미의 `Failed` 로 매핑하고, 그 외는 passthrough.
 
 ```dart
 // Repository: 사실만 반환 (해석 없음)
 Future<Result<OrderModel>> createOrder(...);
 
-// UseCase: Result 를 해석해 Either 로 반환
-Future<Either<Failure, OrderModel>> placeOrder(...) async {
+// UseCase: Result 를 해석해 다시 Result 로 반환
+Future<Result<OrderModel>> placeOrder(...) async {
   final result = await _repository.createOrder(...);
   return _interpretResult(result, FeatureFailureType.orderCreateNotFound);
 }
 
-Either<Failure, OrderModel> _interpretResult(
+Result<OrderModel> _interpretResult(
     Result<OrderModel> result, FeatureFailureType notFoundFallback) {
   return switch (result) {
-    Succeed(:final data) => Right(data),
     Failed(:final failure)
         when failure is ServerFailure &&
             failure.code == ServerErrorCode.duplicateKey =>
-      Left(const FeatureFailure(FeatureFailureType.orderDuplicated)),
-    Failed(:final failure) => Left(failure),
-    NotFound() => Left(FeatureFailure(notFoundFallback)),
+      Result.failed(const FeatureFailure(FeatureFailureType.orderDuplicated)),
+    NotFound() => Result.failed(FeatureFailure(notFoundFallback)),
+    Succeed() => result,
+    Failed() => result,
   };
 }
 ```
 
-같은 Repository 결과를 화면마다 다르게 해석할 수 있는 지점이 UseCase 가 정당화되는 곳이다. 해석이 갈리지 않으면 UseCase 없이 Repository 의 `Result` 를 직접 쓴다.
+같은 Repository 결과를 화면마다 다르게 해석할 수 있는 지점이 UseCase 가 정당화되는 곳이다. 해석이 갈리지 않으면 UseCase 없이 Repository 의 `Result` 를 직접 쓴다. repository·usecase 가 같은 `Result` 타입이라 소비 측은 주입 대상과 무관하게 동일하게 다룬다.
 
 ### 데이터 흐름
 ```
@@ -102,9 +102,9 @@ API / DAO
   ↓
 Repository (네트워크 실패 vs 정상 응답 구분, 해석 없이 Result<T> 반환)
   ↓
-UseCase (Result 해석 → Either<Failure, T> 반환)   ← 해석이 필요할 때만
+UseCase (Result 해석 → Result<T> 재반환)   ← 해석이 필요할 때만
   ↓
-StateHolder / ViewModel (Either 는 .fold 로 소비)
+StateHolder / ViewModel (Result 를 헬퍼·case/is 로 소비)
   ↓
 View (렌더링)
 ```

@@ -28,12 +28,11 @@ description: 뷰 레이어 가이드 — Screen/ViewModel/StateHolder/Store 책�
 ## 에러 처리 — view 는 try-catch 금지
 
 ### MUST NOT
-- **view 레이어(Screen·Widget·ViewModel·StateHolder)에서 try-catch 를 절대 사용하지 않는다.** 예외 처리는 data 레이어(`BaseRepository.execute`)가 전담하고, view 는 `Result`/`Either` 만 소비한다.
+- **view 레이어(Screen·Widget·ViewModel·StateHolder)에서 try-catch 를 절대 사용하지 않는다.** 예외 처리는 data 레이어(`BaseRepository.execute`)가 전담하고, view 는 `Result` 만 소비한다.
 - 카메라·ML Kit·파일 등 **플랫폼/하드웨어/저수준 호출을 ViewModel 에서 직접 하지 않는다.** 이런 호출은 throw 하므로 data source 로 내려 `execute` 로 감싸 `Result` 로 변환받고, ViewModel 은 그 결과만 소비한다.
 
 ### MUST
-- UseCase 가 반환한 `Either<Failure, T>` 는 `.fold(onLeft, onRight)` 로 소비한다 (`onLeft` 에서 `ShowFailureToast` 등 UI 이벤트 발생). 해석이 없어 UseCase 가 없으면 Repository 의 `Result` 를 직접 소비한다.
-- 로딩 표시는 `BaseViewModel` 의 `runSingleTask*`(`Result` 전용) 또는 `Either` 경로에서는 `emitEvent(StartTask())`/`emitEvent(EndTask())` 수동 호출로 처리한다.
+- repository·usecase 모두 `Result<T>` 를 반환하므로 소비 방식이 같다. `BaseViewModel` 의 `runSingleTask*`/`withMessage`/`runWithLoading` 로 감싸 로딩·실패 토스트를 자동 처리하거나, 직접 분기 시 case/is 룰(값 사용 → `case`, 값 미사용 → `is`)을 따른다.
 
 ## 1. 뷰 레이어 아키텍처 관점
 
