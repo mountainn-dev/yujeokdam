@@ -24,7 +24,10 @@ class TourApiImpl implements TourApi {
   /// resultCode 성공값.
   static const String _successCode = '0000';
 
-  TourApiImpl(this._client, this._serviceKey);
+  /// 인증키는 디코딩 형태로 보관한다. `.env` 에 URL 인코딩 키(`%2B` 등)를 넣어도
+  /// 한 번 디코딩해 두면 [Uri.https] 가 쿼리 인코딩을 정확히 한 번만 적용한다.
+  TourApiImpl(this._client, String serviceKey)
+      : _serviceKey = Uri.decodeComponent(serviceKey);
 
   @override
   Future<TourCommonDto?> fetchCommon(String contentId) async {
