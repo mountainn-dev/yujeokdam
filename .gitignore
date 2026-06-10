@@ -44,3 +44,7 @@ app.*.map.json
 
 # OMC (oh-my-claudecode) 런타임 상태
 .omc/
+.claude/scheduled_tasks.lock
+
+# TourAPI 서비스 키 (--dart-define-from-file 용 로컬 설정)
+dart_define*.json
