@@ -1,4 +1,4 @@
-/// 무대 화면의 주변 장소(관광지/음식점) 한 곳.
+/// 특정 좌표 주변의 관광지·음식점 한 곳.
 class NearbyPlace {
   final String contentId;
   final String name;
@@ -17,7 +17,7 @@ class NearbyPlace {
   });
 }
 
-/// TourAPI 에서 가져온 유적지 상세 관광정보. ('이야기의 무대' 화면)
+/// TourAPI 에서 가져온 유적지 상세 관광정보.
 class HeritageDetailModel {
   final String contentId;
   final String title;

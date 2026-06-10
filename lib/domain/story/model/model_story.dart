@@ -34,7 +34,7 @@ class StoryModel {
   final List<String> characterIds;
   final List<String> tags;
 
-  /// 사료 출처 — 무대 화면 하단에 표기한다.
+  /// 이야기의 근거가 되는 사료 출처 목록.
   final List<String> sources;
   final List<StoryMessage> messages;
 
