@@ -8,6 +8,7 @@ import '../../../core/view/ui_event.dart';
 import '../../../domain/heritage/model/model_heritage_detail.dart';
 import '../../../domain/heritage/model/model_heritage_site.dart';
 import '../../../domain/story/model/model_story.dart';
+import '../../app/app_motion.dart';
 import '../view_model/view_model_stage.dart';
 
 /// 이야기의 무대 — 유적지 상세 화면.
@@ -30,7 +31,7 @@ class _StageScreenState extends State<StageScreen> {
   @override
   void initState() {
     super.initState();
-    _viewModel = GetIt.I.get<StageViewModel>()..bindAndLoad(widget.site);
+    _viewModel = GetIt.I.get<StageViewModel>(param1: widget.site)..load();
     _eventSub = _viewModel.eventStream.listen((event) {
       if (!mounted) return;
       if (event is ShowToast) {
@@ -68,27 +69,46 @@ class _StageBody extends StatelessWidget {
       appBar: AppBar(title: Text(site.name)),
       body: Consumer<StageViewModel>(
         builder: (context, viewModel, _) {
-          if (viewModel.isLoading) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          if (viewModel.hasError) {
-            return _ErrorRetry(onRetry: viewModel.load);
-          }
-          final detail = viewModel.detail;
-          if (detail == null) {
-            return Center(
-              child: Text(viewModel.emptyMessage ?? '정보가 없습니다.'),
-            );
-          }
-          return _DetailContent(detail: detail, story: story);
+          // 로딩 인디케이터→상세 콘텐츠 전환을 fade 로 크로스페이드한다.
+          return AnimatedSwitcher(
+            duration: AppMotion.medium,
+            switchInCurve: AppMotion.curve,
+            switchOutCurve: AppMotion.curve,
+            child: _buildContent(viewModel, story),
+          );
         },
       ),
+    );
+  }
+
+  /// AnimatedSwitcher 가 크로스페이드할 수 있도록 상태별로 keyed 위젯을 만든다.
+  Widget _buildContent(StageViewModel viewModel, StoryModel? story) {
+    if (viewModel.isLoading) {
+      return const Center(
+        key: ValueKey('loading'),
+        child: CircularProgressIndicator(),
+      );
+    }
+    if (viewModel.hasError) {
+      return _ErrorRetry(key: const ValueKey('error'), onRetry: viewModel.load);
+    }
+    final detail = viewModel.detail;
+    if (detail == null) {
+      return Center(
+        key: const ValueKey('empty'),
+        child: Text(viewModel.emptyMessage ?? '정보가 없습니다.'),
+      );
+    }
+    return _DetailContent(
+      key: const ValueKey('content'),
+      detail: detail,
+      story: story,
     );
   }
 }
 
 class _ErrorRetry extends StatelessWidget {
-  const _ErrorRetry({required this.onRetry});
+  const _ErrorRetry({super.key, required this.onRetry});
 
   final VoidCallback onRetry;
 
@@ -108,7 +128,9 @@ class _ErrorRetry extends StatelessWidget {
 }
 
 class _DetailContent extends StatelessWidget {
-  const _DetailContent({required this.detail, this.story});
+  const _DetailContent({super.key, required this.detail, this.story});
+
+  static const double _heroImageHeight = 220;
 
   final HeritageDetailModel detail;
   final StoryModel? story;
@@ -121,11 +143,11 @@ class _DetailContent extends StatelessWidget {
         if (detail.firstImageUrl != null)
           Image.network(
             detail.firstImageUrl!,
-            height: 220,
+            height: _heroImageHeight,
             width: double.infinity,
             fit: BoxFit.cover,
             errorBuilder: (context, error, stackTrace) => Container(
-              height: 220,
+              height: _heroImageHeight,
               color: theme.colorScheme.surfaceContainerHighest,
               child: const Icon(Icons.image_not_supported, size: 48),
             ),
@@ -249,12 +271,15 @@ class _InfoRow extends StatelessWidget {
 class _Gallery extends StatelessWidget {
   const _Gallery({required this.urls});
 
+  static const double _galleryHeight = 100;
+  static const double _thumbnailWidth = 140;
+
   final List<String> urls;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100,
+      height: _galleryHeight,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: urls.length,
@@ -263,10 +288,10 @@ class _Gallery extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
           child: Image.network(
             urls[index],
-            width: 140,
+            width: _thumbnailWidth,
             fit: BoxFit.cover,
             errorBuilder: (context, error, stackTrace) => Container(
-              width: 140,
+              width: _thumbnailWidth,
               color: Theme.of(context).colorScheme.surfaceContainerHighest,
               child: const Icon(Icons.image_not_supported),
             ),

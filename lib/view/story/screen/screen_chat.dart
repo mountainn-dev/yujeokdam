@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import '../../../core/view/ui_event.dart';
 import '../../../domain/character/model/model_character.dart';
 import '../../../domain/story/model/model_story.dart';
+import '../../app/app_motion.dart';
 import '../../app/store_content.dart';
 import '../../character/screen/screen_character_profile.dart';
 import '../../character/widget/character_avatar.dart';
@@ -30,7 +31,7 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   void initState() {
     super.initState();
-    _viewModel = GetIt.I.get<ChatViewModel>()..bind(widget.story);
+    _viewModel = GetIt.I.get<ChatViewModel>(param1: widget.story);
     _eventSub = _viewModel.eventStream.listen((event) {
       if (!mounted) return;
       if (event is ShowToast) {
@@ -56,35 +57,84 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 }
 
-class _ChatBody extends StatelessWidget {
+class _ChatBody extends StatefulWidget {
   const _ChatBody({required this.story});
 
   final StoryModel story;
 
   @override
+  State<_ChatBody> createState() => _ChatBodyState();
+}
+
+class _ChatBodyState extends State<_ChatBody> {
+  final GlobalKey<AnimatedListState> _listKey =
+      GlobalKey<AnimatedListState>();
+
+  /// AnimatedList 에 이미 삽입된 말풍선 수. VM 의 visibleCount 와 동기화한다.
+  int _insertedCount = 0;
+  late final ChatViewModel _viewModel;
+
+  @override
+  void initState() {
+    super.initState();
+    _viewModel = context.read<ChatViewModel>();
+    _insertedCount = _viewModel.visibleCount;
+    // VM 의 visibleCount 가 늘면 새 말풍선만 insertItem 으로 등장시킨다.
+    _viewModel.addListener(_syncList);
+  }
+
+  @override
+  void dispose() {
+    _viewModel.removeListener(_syncList);
+    super.dispose();
+  }
+
+  void _syncList() {
+    final target = _viewModel.visibleCount;
+    while (_insertedCount < target) {
+      _listKey.currentState?.insertItem(
+        _insertedCount,
+        duration: AppMotion.short,
+      );
+      _insertedCount += 1;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final story = widget.story;
     final store = context.read<ContentStore>();
 
     return Scaffold(
       appBar: AppBar(title: Text(story.title)),
-      body: Consumer<ChatViewModel>(
-        builder: (context, viewModel, _) {
-          final visible = story.messages.take(viewModel.visibleCount).toList();
-          return GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            onTap: viewModel.revealNext,
-            child: ListView(
-              padding: const EdgeInsets.all(16),
-              children: [
-                for (final message in visible)
-                  _MessageBubble(
-                    message: message,
-                    character: message.characterId == null
-                        ? null
-                        : store.characterById(message.characterId!),
-                  ),
-                if (!viewModel.isCompleted)
-                  const Padding(
+      body: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: _viewModel.revealNext,
+        child: Column(
+          children: [
+            Expanded(
+              child: AnimatedList(
+                key: _listKey,
+                padding: const EdgeInsets.all(16),
+                initialItemCount: _insertedCount,
+                itemBuilder: (context, index, animation) {
+                  final message = story.messages[index];
+                  return AppFadeSlideIn(
+                    animation: animation,
+                    child: _MessageBubble(
+                      message: message,
+                      character: message.characterId == null
+                          ? null
+                          : store.characterById(message.characterId!),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Consumer<ChatViewModel>(
+              builder: (context, viewModel, _) {
+                if (!viewModel.isCompleted) {
+                  return const Padding(
                     padding: EdgeInsets.all(16),
                     child: Center(
                       child: Text(
@@ -92,12 +142,13 @@ class _ChatBody extends StatelessWidget {
                         style: TextStyle(color: Colors.grey),
                       ),
                     ),
-                  ),
-                if (viewModel.isCompleted) _StageButton(story: story),
-              ],
+                  );
+                }
+                return _StageButton(story: story);
+              },
             ),
-          );
-        },
+          ],
+        ),
       ),
     );
   }
