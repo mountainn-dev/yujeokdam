@@ -46,5 +46,5 @@ app.*.map.json
 .omc/
 .claude/scheduled_tasks.lock
 
-# TourAPI 서비스 키 (--dart-define-from-file 용 로컬 설정)
-dart_define*.json
+# TourAPI 서비스 키 (.env — 실제 키는 커밋하지 않음. .env.example 참고)
+.env

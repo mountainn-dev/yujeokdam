@@ -19,16 +19,20 @@
 
 ## 실행
 
-TourAPI 서비스 키(공공데이터포털 KorService2)를 `--dart-define` 으로 주입한다.
+TourAPI 서비스 키(공공데이터포털 KorService2)는 `.env` 에서 읽는다.
 
 ```bash
 flutter pub get
 dart run build_runner build --delete-conflicting-outputs   # 또는 flutter pub run build_runner build
-flutter run --dart-define=TOUR_API_KEY=발급받은_서비스키
+cp .env.example .env        # 최초 1회. .env 의 TOUR_API_KEY 에 발급키를 채운다
+flutter run                 # 매번 키를 넘길 필요 없음
 ```
 
-키 없이도 앱은 동작한다(이야기 읽기는 오프라인). '이야기의 무대' 화면만 키가 있어야
-실제 관광정보가 표시되고, 실패 시 캐시/재시도 빈 상태로 폴백한다.
+`.env` 는 git 에 올리지 않는다(`.env.example` 만 추적). 키 없이도 앱은 동작한다
+(이야기 읽기는 오프라인). '이야기의 무대' 화면만 키가 있어야 실제 관광정보가 표시되고,
+실패 시 캐시/재시도 빈 상태로 폴백한다.
+
+> IDE 의 Run 버튼은 `.env` 를 자동으로 읽으므로 별도 실행 인자 설정이 필요 없다.
 
 > 개발계정은 일 1,000 호출 제한. contentId 검증·콘텐츠 감수 사항은
 > `assets/content/CONTENT_NOTES.md` 참고.
