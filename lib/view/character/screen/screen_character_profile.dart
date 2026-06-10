@@ -69,7 +69,10 @@ class CharacterProfileScreen extends StatelessWidget {
               runSpacing: 8,
               children: [
                 for (final relation in character.relations)
-                  _RelationChip(relation: relation, store: store),
+                  _RelationChip(
+                    relation: relation,
+                    target: store.characterById(relation.targetId),
+                  ),
               ],
             ),
           ],
@@ -86,24 +89,26 @@ class CharacterProfileScreen extends StatelessWidget {
 }
 
 class _RelationChip extends StatelessWidget {
-  const _RelationChip({required this.relation, required this.store});
+  const _RelationChip({required this.relation, required this.target});
 
   final CharacterRelation relation;
-  final ContentStore store;
+
+  /// 부모가 resolve 한 관계 대상 인물. 없으면 null.
+  final CharacterModel? target;
 
   @override
   Widget build(BuildContext context) {
-    final target = store.characterById(relation.targetId);
-    final name = target?.name ?? relation.targetId;
+    final resolved = target;
+    final name = resolved?.name ?? relation.targetId;
     return ActionChip(
       avatar: const Icon(Icons.link, size: 16),
       label: Text('$name · ${relation.label}'),
-      onPressed: target == null
+      onPressed: resolved == null
           ? null
           : () => Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (_) =>
-                      CharacterProfileScreen(characterId: target.id),
+                      CharacterProfileScreen(characterId: resolved.id),
                 ),
               ),
     );

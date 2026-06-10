@@ -59,16 +59,17 @@ class _StoryListBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final store = context.read<ContentStore>();
-    final viewModel = context.watch<StoryListViewModel>();
-    final stories = viewModel.applyFilter(store.stories);
+    // 목록은 VM 의 파생값, 태그 칩 목록은 store 에서 직접 읽는다.
+    final stories = context.watch<StoryListViewModel>().filteredStories;
+    final viewModel = context.read<StoryListViewModel>();
+    final tags = context.read<ContentStore>().allTags();
 
     return Scaffold(
       appBar: AppBar(title: const Text('이야기')),
       body: Column(
         children: [
           _FilterChips(
-            tags: store.allTags(),
+            tags: tags,
             selectedTag: viewModel.selectedTag,
             onTagSelected: viewModel.selectTag,
           ),
@@ -94,6 +95,8 @@ class _FilterChips extends StatelessWidget {
     required this.onTagSelected,
   });
 
+  static const double _barHeight = 56;
+
   final List<String> tags;
   final String? selectedTag;
   final ValueChanged<String?> onTagSelected;
@@ -101,7 +104,7 @@ class _FilterChips extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 56,
+      height: _barHeight,
       child: ListView(
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 12),

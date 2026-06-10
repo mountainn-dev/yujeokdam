@@ -7,11 +7,10 @@ import '../../../domain/heritage/repository/repository_heritage.dart';
 
 /// 이야기의 무대(유적지 상세) 화면의 로딩·상세 일시 상태를 소유한다.
 class StageViewModel extends BaseViewModel {
-  StageViewModel(this._repository);
+  StageViewModel(this._site, this._repository);
 
+  final HeritageSiteModel _site;
   final HeritageRepository _repository;
-
-  HeritageSiteModel? _site;
 
   HeritageDetailModel? _detail;
   HeritageDetailModel? get detail => _detail;
@@ -26,16 +25,9 @@ class StageViewModel extends BaseViewModel {
   String? _emptyMessage;
   String? get emptyMessage => _emptyMessage;
 
-  /// 화면 인자로 받은 유적지를 등록하고 상세를 로드한다.
-  Future<void> bindAndLoad(HeritageSiteModel site) async {
-    _site = site;
-    await load();
-  }
-
   /// 상세 정보를 다시 불러온다(최초 로드/재시도 공용).
   Future<void> load() async {
     final site = _site;
-    if (site == null) return;
 
     _isLoading = true;
     _hasError = false;

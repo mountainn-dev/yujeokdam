@@ -12,7 +12,7 @@ class HomeShellScreen extends StatefulWidget {
 }
 
 class _HomeShellScreenState extends State<HomeShellScreen> {
-  int _index = 0;
+  int _selectedTabIndex = 0;
 
   static const List<Widget> _tabs = [
     StoryListScreen(),
@@ -22,10 +22,11 @@ class _HomeShellScreenState extends State<HomeShellScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(index: _index, children: _tabs),
+      body: IndexedStack(index: _selectedTabIndex, children: _tabs),
       bottomNavigationBar: NavigationBar(
-        selectedIndex: _index,
-        onDestinationSelected: (value) => setState(() => _index = value),
+        selectedIndex: _selectedTabIndex,
+        onDestinationSelected: (value) =>
+            setState(() => _selectedTabIndex = value),
         destinations: const [
           NavigationDestination(
             icon: Icon(Icons.chat_bubble_outline),

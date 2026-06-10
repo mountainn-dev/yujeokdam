@@ -11,8 +11,11 @@ import '../../domain/story/repository/repository_story.dart';
 /// 앱 시작 시 한 번 [initialize] 로 이야기·인물·유적지를 로드하고, 이후
 /// 화면과 ViewModel 은 조회 헬퍼로 읽기만 한다. `ChangeNotifier` 가 아니다.
 class ContentStore {
-  ContentStore(this._storyRepository, this._characterRepository,
-      this._heritageRepository);
+  ContentStore(
+    this._storyRepository,
+    this._characterRepository,
+    this._heritageRepository,
+  );
 
   final StoryRepository _storyRepository;
   final CharacterRepository _characterRepository;
