@@ -3,7 +3,7 @@
 /// `BaseRepository.execute` 가 저수준 예외(Socket/Timeout/포맷/HTTP 등)를
 /// 이 타입으로 변환한다. UseCase 는 이 사실을 화면 의미의 [FeatureFailure] 로
 /// 재해석할 수 있다.
-sealed class Failure {
+sealed class Failure implements Exception {
   final String message;
   const Failure(this.message);
 }
