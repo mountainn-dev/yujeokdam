@@ -13,6 +13,16 @@ class TourApiImpl implements TourApi {
   static const String _host = 'apis.data.go.kr';
   static const String _basePath = '/B551011/KorService2';
   static const String _mobileApp = '유적담';
+  static const String _mobileOs = 'AND';
+  static const String _responseType = 'json';
+  static const String _defaultRows = '10';
+  static const String _firstPage = '1';
+
+  /// 거리순 정렬(TourAPI arrange 코드).
+  static const String _sortByDistance = 'E';
+
+  /// resultCode 성공값.
+  static const String _successCode = '0000';
 
   TourApiImpl(this._client, this._serviceKey);
 
@@ -55,30 +65,30 @@ class TourApiImpl implements TourApi {
     required String mapY,
     required int radiusMeters,
   }) async {
+    // numOfRows 는 _get 기본값(_defaultRows)과 동일하므로 중복 지정하지 않는다.
     final items = await _get('locationBasedList2', {
       'mapX': mapX,
       'mapY': mapY,
       'radius': '$radiusMeters',
-      'arrange': 'E',
-      'numOfRows': '10',
+      'arrange': _sortByDistance,
     });
     return items.map(TourNearbyDto.fromJson).toList();
   }
 
   /// 오퍼레이션을 호출하고 정규화된 item 목록을 반환한다.
   ///
-  /// `resultCode != "0000"` 이면 [ServerFailure] 를 던진다.
+  /// `resultCode != _successCode` 이면 [ServerFailure] 를 던진다.
   Future<List<Map<String, dynamic>>> _get(
     String operation,
     Map<String, String> params,
   ) async {
     final uri = Uri.https(_host, '$_basePath/$operation', {
       'serviceKey': _serviceKey,
-      'MobileOS': 'AND',
+      'MobileOS': _mobileOs,
       'MobileApp': _mobileApp,
-      '_type': 'json',
-      'numOfRows': '10',
-      'pageNo': '1',
+      '_type': _responseType,
+      'numOfRows': _defaultRows,
+      'pageNo': _firstPage,
       ...params,
     });
 
@@ -105,7 +115,7 @@ class TourApiImpl implements TourApi {
     final header = response['header'];
     final resultCode =
         header is Map<String, dynamic> ? header['resultCode'] as String? : null;
-    if (resultCode != '0000') {
+    if (resultCode != _successCode) {
       final msg = header is Map<String, dynamic>
           ? (header['resultMsg'] as String? ?? '알 수 없는 오류')
           : '헤더 없음';

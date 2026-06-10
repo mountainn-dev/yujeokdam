@@ -11,8 +11,15 @@ class RemoteSourceModule {
   static const String _serviceKey = String.fromEnvironment('TOUR_API_KEY');
 
   void registerAll() {
+    assert(
+      _serviceKey.isNotEmpty,
+      'TOUR_API_KEY가 --dart-define으로 주입되지 않았습니다.',
+    );
     final getIt = GetIt.I;
-    getIt.registerSingleton<http.Client>(http.Client());
+    getIt.registerSingleton<http.Client>(
+      http.Client(),
+      dispose: (c) => c.close(),
+    );
     getIt.registerSingleton<TourApi>(
       TourApiImpl(getIt.get<http.Client>(), _serviceKey),
     );
