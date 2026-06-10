@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
+
 import '../result/failure.dart';
 import '../result/result.dart';
 
@@ -24,18 +26,27 @@ abstract class BaseRepository {
       }
       return Succeed<T>(data);
     } on SocketException {
-      return const Failed(NetworkFailure());
+      return _failed(const NetworkFailure());
     } on TimeoutException {
-      return const Failed(TimeoutFailure());
+      return _failed(const TimeoutFailure());
     } on HttpException catch (e) {
-      return Failed(ServerFailure(e.message));
+      return _failed(ServerFailure(e.message));
     } on FormatException {
-      return const Failed(ParseFailure());
+      return _failed(const ParseFailure());
     } on Failure catch (failure) {
       // 소스/매퍼가 의도적으로 던진 도메인 실패 (예: TourAPI resultCode != 0000).
-      return Failed(failure);
-    } catch (_) {
-      return const Failed(UnknownFailure());
+      return _failed(failure);
+    } catch (e) {
+      return _failed(const UnknownFailure(), cause: e);
     }
+  }
+
+  /// 실패를 [Failed] 로 감싸고, debug 빌드에서는 원인을 로그로 남긴다.
+  Failed<T> _failed<T>(Failure failure, {Object? cause}) {
+    if (kDebugMode) {
+      final suffix = cause == null ? '' : ' (cause: $cause)';
+      debugPrint('[$runtimeType] ${failure.runtimeType}: ${failure.message}$suffix');
+    }
+    return Failed<T>(failure);
   }
 }
