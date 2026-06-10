@@ -1,0 +1,125 @@
+[
+  {
+    "id": "soji_king",
+    "name": "소지왕",
+    "portrait": "assets/portraits/soji_king.png",
+    "lifespan": "?~500",
+    "one_liner": "신라 제21대 왕",
+    "description": "신라 제21대 임금. 정월 보름, 까마귀가 전한 경고를 따라 목숨을 건졌다는 사금갑(射琴匣) 설화의 주인공이다.",
+    "relations": [
+      { "target_id": "court_lady", "label": "왕비" },
+      { "target_id": "monk", "label": "내통 상대" }
+    ]
+  },
+  {
+    "id": "court_lady",
+    "name": "왕비",
+    "portrait": "assets/portraits/court_lady.png",
+    "lifespan": "미상",
+    "one_liner": "소지왕의 비",
+    "description": "거문고 갑 속에 숨은 승려와 내통하다 까마귀가 전한 편지로 발각되었다고 전한다.",
+    "relations": [
+      { "target_id": "soji_king", "label": "남편" }
+    ]
+  },
+  {
+    "id": "monk",
+    "name": "분수승",
+    "portrait": "assets/portraits/monk.png",
+    "lifespan": "미상",
+    "one_liner": "궁중에 숨어든 승려",
+    "description": "거문고 갑 속에 숨어 있다 화살에 맞은 인물. 사금갑 설화의 발단이 된다.",
+    "relations": [
+      { "target_id": "soji_king", "label": "적대" }
+    ]
+  },
+  {
+    "id": "kim_daeseong",
+    "name": "김대성",
+    "portrait": "assets/portraits/kim_daeseong.png",
+    "lifespan": "700~774",
+    "one_liner": "불국사·석불사를 세운 재상",
+    "description": "통일신라의 재상. 현생의 부모를 위해 불국사를, 전생의 부모를 위해 석불사(석굴암)를 지었다는 효심 설화로 전한다. 삼국유사 '대성효이세부모(大城孝二世父母)'.",
+    "relations": [
+      { "target_id": "gyeongjo", "label": "전생의 어머니" },
+      { "target_id": "kim_munryang", "label": "현생의 아버지" }
+    ]
+  },
+  {
+    "id": "gyeongjo",
+    "name": "경조",
+    "portrait": "assets/portraits/gyeongjo.png",
+    "lifespan": "미상",
+    "one_liner": "대성의 가난한 전생 어머니",
+    "description": "모량리의 가난한 여인. 품팔이로 얻은 밭을 흥륜사 보시에 바친 아이 대성의 전생 어머니로 전한다.",
+    "relations": [
+      { "target_id": "kim_daeseong", "label": "전생의 아들" }
+    ]
+  },
+  {
+    "id": "kim_munryang",
+    "name": "김문량",
+    "portrait": "assets/portraits/kim_munryang.png",
+    "lifespan": "미상",
+    "one_liner": "재상, 대성의 현생 아버지",
+    "description": "하늘의 외침 뒤 대성이 다시 태어난 집의 재상. 손에 '대성(大城)'이라 새긴 금간자를 쥔 아이를 얻었다고 전한다.",
+    "relations": [
+      { "target_id": "kim_daeseong", "label": "현생의 아들" }
+    ]
+  },
+  {
+    "id": "queen_seondeok",
+    "name": "선덕여왕",
+    "portrait": "assets/portraits/queen_seondeok.png",
+    "lifespan": "?~647",
+    "one_liner": "신라 제27대 왕, 첫 여왕",
+    "description": "신라 최초의 여왕. 향기 없는 모란, 옥문지의 개구리 등으로 앞일을 내다본 '지기삼사(知幾三事)'의 일화와 동양 最古의 천문대 첨성대 건립으로 전한다.",
+    "relations": [
+      { "target_id": "minister_eulje", "label": "신하" }
+    ]
+  },
+  {
+    "id": "minister_eulje",
+    "name": "을제",
+    "portrait": "assets/portraits/minister_eulje.png",
+    "lifespan": "미상",
+    "one_liner": "선덕여왕대의 재상",
+    "description": "선덕여왕을 보좌한 재상으로 전한다. 여왕의 천문 관측과 백성을 위한 정사를 함께 도모하는 인물로 그렸다.",
+    "relations": [
+      { "target_id": "queen_seondeok", "label": "임금" }
+    ]
+  },
+  {
+    "id": "king_munmu",
+    "name": "문무왕",
+    "portrait": "assets/portraits/king_munmu.png",
+    "lifespan": "?~681",
+    "one_liner": "삼국을 통일한 신라 제30대 왕",
+    "description": "삼국 통일을 완성한 임금. 동궁에 못(월지)을 파고 화초와 진금이수를 길렀으며, 죽어서도 용이 되어 나라를 지키겠다며 바다에 묻혔다고 전한다.",
+    "relations": [
+      { "target_id": "minister_eulje", "label": "신하" }
+    ]
+  },
+  {
+    "id": "king_gyeongae",
+    "name": "경애왕",
+    "portrait": "assets/portraits/king_gyeongae.png",
+    "lifespan": "?~927",
+    "one_liner": "신라 제55대 왕",
+    "description": "후삼국의 격랑 속 신라의 임금. 포석정에서 잔치를 벌이던 중 후백제 견훤의 습격을 받아 비극적 최후를 맞았다고 전한다.",
+    "relations": [
+      { "target_id": "gyeon_hwon", "label": "적대" }
+    ]
+  },
+  {
+    "id": "gyeon_hwon",
+    "name": "견훤",
+    "portrait": "assets/portraits/gyeon_hwon.png",
+    "lifespan": "867~936",
+    "one_liner": "후백제를 세운 왕",
+    "description": "후백제의 건국자. 927년 경주를 급습해 신라 경애왕을 죽음에 이르게 했다고 전한다.",
+    "relations": [
+      { "target_id": "king_gyeongae", "label": "적대" }
+    ]
+  }
+]
