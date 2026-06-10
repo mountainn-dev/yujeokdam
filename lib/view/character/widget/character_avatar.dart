@@ -17,10 +17,27 @@ class CharacterAvatar extends StatelessWidget {
   final double radius;
   final Color? color;
 
+  /// '깔끔한 동화' 톤에 맞춘 차분한 스토리북 팔레트.
+  ///
+  /// 머티리얼 원색은 채도가 높아 흙빛 테마와 충돌하므로, 인물 구분은 유지하되
+  /// 서로 어우러지는 부드러운 색만 쓴다.
+  static const List<Color> _palette = [
+    Color(0xFFB5835A), // 캐러멜
+    Color(0xFF7E8C6A), // 세이지
+    Color(0xFFC17A52), // 테라코타
+    Color(0xFF6E8CA0), // 더스티 블루
+    Color(0xFFA97A8C), // 모브
+    Color(0xFF8C9A5B), // 올리브
+    Color(0xFFCBA15B), // 허니 오커
+    Color(0xFF9C6B45), // 흙빛 갈색
+    Color(0xFF7BA089), // 소프트 제이드
+    Color(0xFFB76E68), // 클레이 로즈
+  ];
+
   /// 인물 id/이름 해시로 안정적인 색을 만든다.
   static Color colorFor(String seed) {
     final hash = seed.codeUnits.fold<int>(0, (acc, c) => acc + c);
-    return Colors.primaries[hash % Colors.primaries.length];
+    return _palette[hash % _palette.length];
   }
 
   @override
