@@ -98,6 +98,6 @@ void main() {
 
     final sites = (result as Succeed).data;
     final site = sites.firstWhere((s) => s.id == 'site_seochulji');
-    expect(site.tourApiContentId, '126312');
+    expect(site.tourApiContentId, '128612');
   });
 }

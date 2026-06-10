@@ -3,26 +3,20 @@
 이 폴더의 `stories.json` / `characters.json` / `sites.json` 는 **LLM 초안** 단계 산출물이다.
 스펙의 "LLM 초안 → 사람 감수" 워크플로우에서 **감수 전 상태**이므로, 배포 전 아래를 반드시 확인한다.
 
-## ⚠️ TourAPI contentId 검증 필요 (최우선)
+## TourAPI contentId (검증 완료)
 
-서비스 키 발급 후 `searchKeyword2`(또는 `areaBasedList2`, 경주 지역코드)로 각 유적지의 실제
-`contentId` / `contentTypeId` 를 확인해 `sites.json` 을 갱신한다. 아래 값은 **미검증 추정치**다.
+`searchKeyword2` 실호출로 경주 유적지의 실제 `contentId` 를 확인해 `sites.json` 에 반영했다.
+모두 `contentTypeId=12`(관광지).
 
-| site id | 이름 | 기재된 content_id | 상태 |
+| site id | 이름 | content_id | 상태 |
 |---|---|---|---|
-| site_seochulji | 서출지 | 126312 | ❓ 검증 필요 |
-| site_bulguksa | 불국사 | 126508 | ❓ 검증 필요 |
-| site_cheomseongdae | 첨성대 | 126230 | ❓ 검증 필요 |
-| site_donggung_wolji | 동궁과 월지 | 126496 | ❓ 검증 필요 |
-| site_poseokjeong | 포석정 | 126509 | ❓ 검증 필요 |
+| site_seochulji | 서출지 | 128612 | ✅ 검증됨 |
+| site_bulguksa | 불국사 | 126166 | ✅ 검증됨 (유네스코 세계유산) |
+| site_cheomseongdae | 첨성대 | 126207 | ✅ 검증됨 |
+| site_donggung_wolji | 동궁과 월지 | 128526 | ✅ 검증됨 |
+| site_poseokjeong | 포석정 | 126208 | ✅ 검증됨 |
 
-검증 방법 예시(키 발급 후):
-```
-GET https://apis.data.go.kr/B551011/KorService2/searchKeyword2
-  ?serviceKey=...&MobileOS=AND&MobileApp=유적담&_type=json
-  &keyword=불국사&numOfRows=10&pageNo=1
-```
-응답의 `contentid`, `contenttypeid` 를 sites.json 에 반영.
+불국사 `detailIntro2` 의 `heritage1=1` 확인 — 무대 화면 유네스코 배지가 켜진다.
 
 ## 감수 체크리스트 (사람)
 

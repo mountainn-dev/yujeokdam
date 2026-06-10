@@ -2,31 +2,31 @@
   {
     "id": "site_seochulji",
     "name": "서출지",
-    "tour_api_content_id": "126312",
+    "tour_api_content_id": "128612",
     "tour_api_content_type_id": "12"
   },
   {
     "id": "site_bulguksa",
     "name": "불국사",
-    "tour_api_content_id": "126508",
+    "tour_api_content_id": "126166",
     "tour_api_content_type_id": "12"
   },
   {
     "id": "site_cheomseongdae",
     "name": "첨성대",
-    "tour_api_content_id": "126230",
+    "tour_api_content_id": "126207",
     "tour_api_content_type_id": "12"
   },
   {
     "id": "site_donggung_wolji",
     "name": "동궁과 월지",
-    "tour_api_content_id": "126496",
+    "tour_api_content_id": "128526",
     "tour_api_content_type_id": "12"
   },
   {
     "id": "site_poseokjeong",
     "name": "포석정",
-    "tour_api_content_id": "126509",
+    "tour_api_content_id": "126208",
     "tour_api_content_type_id": "12"
   }
 ]
