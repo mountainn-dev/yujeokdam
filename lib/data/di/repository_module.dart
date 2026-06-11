@@ -2,6 +2,7 @@ import 'package:get_it/get_it.dart';
 
 import '../../domain/character/repository/repository_character.dart';
 import '../../domain/heritage/repository/repository_heritage.dart';
+import '../../domain/launcher/repository/repository_launcher.dart';
 import '../../domain/read_status/repository/repository_read_status.dart';
 import '../../domain/story/repository/repository_story.dart';
 import '../character/mapper/mapper_character.dart';
@@ -13,6 +14,8 @@ import '../heritage/repository_impl/repository_impl_heritage.dart';
 import '../heritage/source/local/asset/heritage_asset_source.dart';
 import '../heritage/source/local/cache/tour_cache_source.dart';
 import '../heritage/source/remote/api/tour_api.dart';
+import '../launcher/repository_impl/repository_impl_launcher.dart';
+import '../launcher/source/external_link_source.dart';
 import '../read_status/repository_impl/repository_impl_read_status.dart';
 import '../read_status/source/local/preference/read_status_source.dart';
 import '../story/mapper/mapper_story.dart';
@@ -43,6 +46,9 @@ class RepositoryModule {
     );
     getIt.registerSingleton<ReadStatusRepository>(
       ReadStatusRepositoryImpl(getIt.get<ReadStatusSource>()),
+    );
+    getIt.registerSingleton<LauncherRepository>(
+      LauncherRepositoryImpl(getIt.get<ExternalLinkSource>()),
     );
   }
 }

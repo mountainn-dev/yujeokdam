@@ -2,6 +2,7 @@ import 'package:get_it/get_it.dart';
 
 import '../../domain/heritage/model/model_heritage_site.dart';
 import '../../domain/heritage/repository/repository_heritage.dart';
+import '../../domain/launcher/repository/repository_launcher.dart';
 import '../../domain/story/model/model_story.dart';
 import '../app/store_content.dart';
 import '../heritage/view_model/view_model_stage.dart';
@@ -22,7 +23,11 @@ class ViewModelFactoryModule {
           ChatViewModel(story, getIt.get<ReadStatusStateHolder>()),
     );
     getIt.registerFactoryParam<StageViewModel, HeritageSiteModel, void>(
-      (site, _) => StageViewModel(site, getIt.get<HeritageRepository>()),
+      (site, _) => StageViewModel(
+        site,
+        getIt.get<HeritageRepository>(),
+        getIt.get<LauncherRepository>(),
+      ),
     );
   }
 }

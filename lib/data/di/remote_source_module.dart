@@ -5,6 +5,8 @@ import 'package:http/http.dart' as http;
 
 import '../heritage/source/remote/api/tour_api.dart';
 import '../heritage/source/remote/api_impl/tour_api_impl.dart';
+import '../launcher/source/external_link_source.dart';
+import '../launcher/source/external_link_source_impl.dart';
 
 /// 원격 소스(TourAPI) 등록.
 ///
@@ -27,5 +29,7 @@ class RemoteSourceModule {
     getIt.registerSingleton<TourApi>(
       TourApiImpl(getIt.get<http.Client>(), serviceKey),
     );
+    // 외부 앱 실행(지도 등). 네트워크는 아니지만 단말 밖으로 나가는 외부 연동이다.
+    getIt.registerSingleton<ExternalLinkSource>(const ExternalLinkSourceImpl());
   }
 }
