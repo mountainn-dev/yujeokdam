@@ -12,6 +12,9 @@ class AppMotion {
   /// 일반 전환(크로스페이드 등).
   static const Duration medium = Duration(milliseconds: 400);
 
+  /// 채팅 말풍선의 타이핑 인디케이터가 보였다가 텍스트로 전환되기까지의 한 박자.
+  static const Duration typing = Duration(milliseconds: 700);
+
   /// 공통 커브.
   static const Curve curve = Curves.easeOut;
 }
