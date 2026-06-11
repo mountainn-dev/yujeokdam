@@ -144,36 +144,72 @@ class _StoryCard extends StatelessWidget {
     final isOpened = context.select<ReadStatusStateHolder, bool>(
       (holder) => holder.isOpened(story.id),
     );
+    final progress = context.select<ReadStatusStateHolder, int>(
+      (holder) => holder.progressOf(story.id),
+    );
 
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       child: ListTile(
         leading: _AvatarCluster(characters: characters),
         title: Text(story.title),
-        trailing: isOpened
-            ? null
-            : Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.tertiary,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Text(
-                  'NEW',
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.onTertiary,
-                    fontSize: 11,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 0.3,
-                  ),
-                ),
-              ),
+        trailing: _CardStatus(
+          isOpened: isOpened,
+          progress: progress,
+          total: story.messages.length,
+        ),
         onTap: () => Navigator.of(context).push(
           MaterialPageRoute(
             builder: (_) => ChatScreen(story: story),
           ),
         ),
+      ),
+    );
+  }
+}
+
+/// 카드 우측 상태 표시 — 시작 전이면 NEW 배지, 그 외에는 진행도 퍼센트.
+class _CardStatus extends StatelessWidget {
+  const _CardStatus({
+    required this.isOpened,
+    required this.progress,
+    required this.total,
+  });
+
+  final bool isOpened;
+  final int progress;
+  final int total;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+
+    if (!isOpened && progress == 0) {
+      return Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+        decoration: BoxDecoration(
+          color: scheme.tertiary,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Text(
+          'NEW',
+          style: TextStyle(
+            color: scheme.onTertiary,
+            fontSize: 11,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 0.3,
+          ),
+        ),
+      );
+    }
+
+    final percent = total == 0 ? 0 : (progress / total * 100).round();
+    return Text(
+      '$percent%',
+      style: TextStyle(
+        color: scheme.onSurfaceVariant,
+        fontSize: 13,
+        fontWeight: FontWeight.w600,
       ),
     );
   }

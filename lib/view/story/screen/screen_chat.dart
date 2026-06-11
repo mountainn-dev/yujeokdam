@@ -70,8 +70,7 @@ class _ChatBody extends StatefulWidget {
 }
 
 class _ChatBodyState extends State<_ChatBody> {
-  final GlobalKey<AnimatedListState> _listKey =
-      GlobalKey<AnimatedListState>();
+  GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
 
   /// AnimatedList 에 이미 삽입된 말풍선 수. VM 의 visibleCount 와 동기화한다.
   int _insertedCount = 0;
@@ -102,6 +101,14 @@ class _ChatBodyState extends State<_ChatBody> {
 
   void _syncList() {
     final target = _viewModel.visibleCount;
+    // 다시보기로 visibleCount 가 줄면 리스트를 새로 만들어 처음부터 다시 그린다.
+    if (target < _insertedCount) {
+      setState(() {
+        _listKey = GlobalKey<AnimatedListState>();
+        _insertedCount = target;
+      });
+      return;
+    }
     var inserted = false;
     while (_insertedCount < target) {
       _listKey.currentState?.insertItem(
@@ -236,6 +243,7 @@ class _StageEpilogue extends StatelessWidget {
           builder: (_) => StageScreen(site: site, story: story),
         ),
       ),
+      onReplay: () => context.read<ChatViewModel>().replay(),
     );
   }
 }
@@ -317,7 +325,7 @@ class _MessageBubble extends StatelessWidget {
                     color: color.withOpacity(0.15),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: _TypingThenText(color: color, text: message.text),
+                  child: Text(message.text),
                 ),
               ],
             ),
@@ -328,95 +336,3 @@ class _MessageBubble extends StatelessWidget {
   }
 }
 
-/// 메신저처럼 타이핑 점을 잠깐 보였다가 대사로 전환하는 말풍선 본문.
-///
-/// 단발 [AnimationController] 로 한 박자만 재생한다(반복 없음 → pumpAndSettle
-/// 호환). 텍스트는 처음부터 트리에 상주하고 불투명도만 0→1 로 올라온다.
-class _TypingThenText extends StatefulWidget {
-  const _TypingThenText({required this.color, required this.text});
-
-  final Color color;
-  final String text;
-
-  @override
-  State<_TypingThenText> createState() => _TypingThenTextState();
-}
-
-class _TypingThenTextState extends State<_TypingThenText>
-    with SingleTickerProviderStateMixin {
-  late final AnimationController _controller;
-  late final Animation<double> _dotsOpacity;
-  late final Animation<double> _textOpacity;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(duration: AppMotion.typing, vsync: this);
-    _dotsOpacity = Tween<double>(begin: 1, end: 0).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: const Interval(0.5, 0.7, curve: Curves.easeOut),
-      ),
-    );
-    _textOpacity = Tween<double>(begin: 0, end: 1).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: const Interval(0.6, 1, curve: Curves.easeOut),
-      ),
-    );
-    _controller.forward();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: _controller,
-      builder: (context, _) => Stack(
-        children: [
-          Opacity(opacity: _textOpacity.value, child: Text(widget.text)),
-          if (_dotsOpacity.value > 0)
-            Positioned.fill(
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Opacity(
-                  opacity: _dotsOpacity.value,
-                  child: _TypingDots(color: widget.color),
-                ),
-              ),
-            ),
-        ],
-      ),
-    );
-  }
-}
-
-/// 타이핑 인디케이터의 세 점.
-class _TypingDots extends StatelessWidget {
-  const _TypingDots({required this.color});
-
-  final Color color;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        for (var i = 0; i < 3; i++)
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 2),
-            child: Container(
-              width: 6,
-              height: 6,
-              decoration: BoxDecoration(color: color, shape: BoxShape.circle),
-            ),
-          ),
-      ],
-    );
-  }
-}

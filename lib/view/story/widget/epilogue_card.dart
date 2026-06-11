@@ -9,10 +9,12 @@ class EpilogueCard extends StatelessWidget {
     super.key,
     required this.siteName,
     required this.onOpenStage,
+    required this.onReplay,
   });
 
   final String siteName;
   final VoidCallback onOpenStage;
+  final VoidCallback onReplay;
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +47,12 @@ class EpilogueCard extends StatelessWidget {
             icon: const Icon(Icons.place),
             label: Text('「$siteName」의 무대 보러가기'),
             onPressed: onOpenStage,
+          ),
+          const SizedBox(height: 4),
+          TextButton.icon(
+            icon: const Icon(Icons.replay, size: 18),
+            label: const Text('다시보기'),
+            onPressed: onReplay,
           ),
         ],
       ),
