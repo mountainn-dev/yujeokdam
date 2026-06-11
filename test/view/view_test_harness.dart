@@ -46,15 +46,34 @@ class FakeHeritageRepository implements HeritageRepository {
 }
 
 class FakeReadStatusRepository implements ReadStatusRepository {
-  FakeReadStatusRepository([Set<String>? opened])
-      : _opened = {...?opened};
+  FakeReadStatusRepository([Set<String>? opened, Map<String, int>? progress])
+      : _opened = {...?opened},
+        _progress = {...?progress};
   Set<String> _opened;
+  Map<String, int> _progress;
   @override
   Future<Result<Set<String>>> getOpenedStoryIds() async => Succeed(_opened);
   @override
   Future<Result<Set<String>>> markStoryOpened(String storyId) async {
     _opened = {..._opened, storyId};
     return Succeed(_opened);
+  }
+
+  @override
+  Future<Result<Map<String, int>>> getStoryProgress() async =>
+      Succeed(_progress);
+  @override
+  Future<Result<Map<String, int>>> saveStoryProgress(
+    String storyId,
+    int revealedCount,
+  ) async {
+    _progress = {..._progress};
+    if (revealedCount <= 0) {
+      _progress.remove(storyId);
+    } else {
+      _progress[storyId] = revealedCount;
+    }
+    return Succeed(_progress);
   }
 }
 
@@ -64,6 +83,7 @@ Future<void> registerViewLayer({
   required List<CharacterModel> characters,
   required List<HeritageSiteModel> sites,
   Set<String>? opened,
+  Map<String, int>? progress,
 }) async {
   final getIt = GetIt.I;
   await getIt.reset();
@@ -73,7 +93,7 @@ Future<void> registerViewLayer({
       FakeCharacterRepository(characters));
   getIt.registerSingleton<HeritageRepository>(FakeHeritageRepository(sites));
   getIt.registerSingleton<ReadStatusRepository>(
-      FakeReadStatusRepository(opened));
+      FakeReadStatusRepository(opened, progress));
 
   StoreModule().registerAll();
   StateHolderModule().registerAll();

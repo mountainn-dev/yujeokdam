@@ -26,4 +26,26 @@ class ReadStatusRepositoryImpl extends BaseRepository
       return ids;
     });
   }
+
+  @override
+  Future<Result<Map<String, int>>> getStoryProgress() {
+    return execute(() => _source.loadStoryProgress());
+  }
+
+  @override
+  Future<Result<Map<String, int>>> saveStoryProgress(
+    String storyId,
+    int revealedCount,
+  ) {
+    return execute(() async {
+      final progress = Map<String, int>.from(await _source.loadStoryProgress());
+      if (revealedCount <= 0) {
+        progress.remove(storyId);
+      } else {
+        progress[storyId] = revealedCount;
+      }
+      await _source.saveStoryProgress(progress);
+      return progress;
+    });
+  }
 }
