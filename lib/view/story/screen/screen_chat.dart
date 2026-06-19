@@ -142,8 +142,20 @@ class _ChatBodyState extends State<_ChatBody> {
     final story = widget.story;
     final store = context.read<ContentStore>();
 
+    final characters = store.charactersOf(story);
+    final lead = characters.isEmpty ? null : characters.first;
+    final siteName = store.siteById(story.siteId)?.name;
+    final accent = CharacterAvatar.colorFor(lead?.id ?? story.title);
+
     return Scaffold(
-      appBar: AppBar(title: Text(story.title)),
+      appBar: AppBar(
+        titleSpacing: 0,
+        title: _ChatTitle(
+          title: story.title,
+          siteName: siteName,
+          lead: lead,
+        ),
+      ),
       body: GestureDetector(
         behavior: HitTestBehavior.opaque,
         onTap: _onTapReveal,
@@ -155,6 +167,7 @@ class _ChatBodyState extends State<_ChatBody> {
                 total: story.messages.length,
               ),
             ),
+            _ChatHeaderBanner(accent: accent, siteName: siteName),
             Expanded(
               child: AnimatedList(
                 key: _listKey,
@@ -192,6 +205,147 @@ class _ChatBodyState extends State<_ChatBody> {
   }
 }
 
+/// AppBar 제목 — 대표 인물 아바타 + 이야기 제목 + 유적지 위치.
+class _ChatTitle extends StatelessWidget {
+  const _ChatTitle({
+    required this.title,
+    required this.siteName,
+    required this.lead,
+  });
+
+  final String title;
+  final String? siteName;
+  final CharacterModel? lead;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
+    return Row(
+      children: [
+        if (lead != null) ...[
+          CharacterAvatar(
+            name: lead!.name,
+            portrait: lead!.portrait,
+            id: lead!.id,
+            radius: 16,
+          ),
+          const SizedBox(width: 10),
+        ],
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                title,
+                style: theme.appBarTheme.titleTextStyle
+                    ?.copyWith(fontSize: 17),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+              if (siteName != null)
+                Row(
+                  children: [
+                    Icon(Icons.place_outlined,
+                        size: 12, color: scheme.onSurfaceVariant),
+                    const SizedBox(width: 2),
+                    Text(
+                      siteName!,
+                      style: theme.textTheme.bodySmall
+                          ?.copyWith(color: scheme.onSurfaceVariant),
+                    ),
+                  ],
+                ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+/// 대화 위에 얹히는 컬러 헤더 — 대표 인물 색 바탕에 장식 원과 위치 칩.
+class _ChatHeaderBanner extends StatelessWidget {
+  const _ChatHeaderBanner({required this.accent, required this.siteName});
+
+  final Color accent;
+  final String? siteName;
+
+  @override
+  Widget build(BuildContext context) {
+    final label = siteName == null ? '경주' : '경주 · $siteName';
+    return SizedBox(
+      height: 76,
+      width: double.infinity,
+      child: ClipRect(
+        child: Stack(
+          children: [
+            Positioned.fill(child: ColoredBox(color: accent)),
+            // 은은한 장식 원들.
+            Positioned(
+              left: 28,
+              top: -18,
+              child: _Bubble(size: 64, color: Colors.white.withOpacity(0.12)),
+            ),
+            Positioned(
+              left: 8,
+              bottom: -24,
+              child: _Bubble(size: 52, color: Colors.white.withOpacity(0.10)),
+            ),
+            Positioned(
+              right: 40,
+              bottom: -10,
+              child: _Bubble(size: 36, color: Colors.white.withOpacity(0.10)),
+            ),
+            Center(
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.place, size: 15, color: accent),
+                    const SizedBox(width: 5),
+                    Text(
+                      label,
+                      style: TextStyle(
+                        color: accent,
+                        fontSize: 13,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _Bubble extends StatelessWidget {
+  const _Bubble({required this.size, required this.color});
+
+  final double size;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: size,
+      height: size,
+      decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+    );
+  }
+}
+
 /// 탭하여 이야기를 이어가라는 안내. 단발 fade-in 으로 은은히 나타난다.
 class _TapHint extends StatelessWidget {
   const _TapHint({super.key});
@@ -212,7 +366,7 @@ class _TapHint extends StatelessWidget {
             Icon(Icons.touch_app_outlined, size: 16, color: scheme.onSurfaceVariant),
             const SizedBox(width: 6),
             Text(
-              '화면을 탭해 이야기를 이어가세요',
+              '화면을 터치하면 다음 이야기가 펼쳐집니다',
               style: TextStyle(color: scheme.onSurfaceVariant),
             ),
           ],
@@ -280,6 +434,7 @@ class _MessageBubble extends StatelessWidget {
     }
 
     final name = character?.name ?? '?';
+    final scheme = Theme.of(context).colorScheme;
     final seed = message.characterId ?? name;
     final color = CharacterAvatar.colorFor(seed);
 
@@ -300,6 +455,7 @@ class _MessageBubble extends StatelessWidget {
             child: CharacterAvatar(
               name: name,
               portrait: character?.portrait ?? '',
+              id: character?.id,
               radius: 18,
               color: color,
             ),
@@ -320,10 +476,16 @@ class _MessageBubble extends StatelessWidget {
                 const SizedBox(height: 2),
                 Container(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 9),
                   decoration: BoxDecoration(
-                    color: color.withOpacity(0.15),
-                    borderRadius: BorderRadius.circular(12),
+                    color: scheme.surfaceContainerLowest,
+                    border: Border.all(color: scheme.outlineVariant),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(4),
+                      topRight: Radius.circular(14),
+                      bottomLeft: Radius.circular(14),
+                      bottomRight: Radius.circular(14),
+                    ),
                   ),
                   child: Text(message.text),
                 ),
