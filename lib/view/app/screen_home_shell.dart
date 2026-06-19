@@ -29,13 +29,13 @@ class _HomeShellScreenState extends State<HomeShellScreen> {
             setState(() => _selectedTabIndex = value),
         destinations: const [
           NavigationDestination(
-            icon: Icon(Icons.chat_bubble_outline),
-            selectedIcon: Icon(Icons.chat_bubble),
+            icon: Icon(Icons.auto_stories_outlined),
+            selectedIcon: Icon(Icons.auto_stories),
             label: '이야기',
           ),
           NavigationDestination(
-            icon: Icon(Icons.people_outline),
-            selectedIcon: Icon(Icons.people),
+            icon: Icon(Icons.people_alt_outlined),
+            selectedIcon: Icon(Icons.people_alt),
             label: '인물',
           ),
         ],
