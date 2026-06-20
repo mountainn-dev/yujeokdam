@@ -21,7 +21,7 @@ class CharacterCodexScreen extends StatelessWidget {
   const CharacterCodexScreen({super.key});
 
   static const int _crossAxisCount = 3;
-  static const double _cellAspectRatio = 0.68;
+  static const double _cellAspectRatio = 0.62;
 
   @override
   Widget build(BuildContext context) {
@@ -227,13 +227,15 @@ class _RevealedCell extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
             const SizedBox(height: 2),
-            Text(
-              character.oneLiner,
-              textAlign: TextAlign.center,
-              style: theme.textTheme.bodySmall
-                  ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
+            Flexible(
+              child: Text(
+                character.oneLiner,
+                textAlign: TextAlign.center,
+                style: theme.textTheme.bodySmall
+                    ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
             const SizedBox(height: 8),
             Container(
