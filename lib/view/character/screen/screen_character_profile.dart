@@ -5,7 +5,6 @@ import '../../../domain/character/model/model_character.dart';
 import '../../../domain/story/model/model_story.dart';
 import '../../app/store_content.dart';
 import '../../read_status/state_holder/state_holder_read_status.dart';
-import '../../story/screen/screen_chat.dart';
 import '../widget/character_avatar.dart';
 
 /// 인물 프로필 — ContentStore 에서 읽고, 등장 이야기의 NEW 여부만 열람 상태를 본다.
@@ -158,23 +157,11 @@ class _RelationDiagram extends StatelessWidget {
             Builder(
               builder: (context) {
                 final target = store.characterById(relation.targetId);
-                final name = target?.name ?? relation.targetId;
-                final node = _RelationNode(
-                  name: name,
+                return _RelationNode(
+                  name: target?.name ?? relation.targetId,
                   portrait: target?.portrait ?? '',
                   id: target?.id,
                   radius: 24,
-                );
-                if (target == null) return node;
-                return InkWell(
-                  borderRadius: BorderRadius.circular(12),
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) =>
-                          CharacterProfileScreen(characterId: target.id),
-                    ),
-                  ),
-                  child: node,
                 );
               },
             ),
@@ -285,77 +272,69 @@ class _StoryCard extends StatelessWidget {
     );
     final isNew = !isOpened && progress == 0;
 
-    return Material(
-      color: scheme.surfaceContainerLow,
-      borderRadius: BorderRadius.circular(16),
-      child: InkWell(
+    return Container(
+      decoration: BoxDecoration(
+        color: scheme.surfaceContainerLow,
         borderRadius: BorderRadius.circular(16),
-        onTap: () => Navigator.of(context).push(
-          MaterialPageRoute(builder: (_) => ChatScreen(story: story)),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-          child: Row(
-            children: [
-              Container(
-                width: 8,
-                height: 8,
-                decoration:
-                    BoxDecoration(color: accent, shape: BoxShape.circle),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      story.title,
-                      style: theme.textTheme.bodyLarge
-                          ?.copyWith(fontWeight: FontWeight.w600),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    if (siteName != null) ...[
-                      const SizedBox(height: 2),
-                      Row(
-                        children: [
-                          Icon(Icons.place_outlined,
-                              size: 13, color: scheme.onSurfaceVariant),
-                          const SizedBox(width: 2),
-                          Text(
-                            siteName,
-                            style: theme.textTheme.bodySmall
-                                ?.copyWith(color: scheme.onSurfaceVariant),
-                          ),
-                        ],
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+      child: Row(
+        children: [
+          Container(
+            width: 8,
+            height: 8,
+            decoration: BoxDecoration(color: accent, shape: BoxShape.circle),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  story.title,
+                  style: theme.textTheme.bodyLarge
+                      ?.copyWith(fontWeight: FontWeight.w600),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                if (siteName != null) ...[
+                  const SizedBox(height: 2),
+                  Row(
+                    children: [
+                      Icon(Icons.place_outlined,
+                          size: 13, color: scheme.onSurfaceVariant),
+                      const SizedBox(width: 2),
+                      Text(
+                        siteName,
+                        style: theme.textTheme.bodySmall
+                            ?.copyWith(color: scheme.onSurfaceVariant),
                       ),
                     ],
-                  ],
+                  ),
+                ],
+              ],
+            ),
+          ),
+          if (isNew) ...[
+            const SizedBox(width: 8),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+              decoration: BoxDecoration(
+                color: scheme.secondary,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Text(
+                'NEW',
+                style: TextStyle(
+                  color: scheme.onSecondary,
+                  fontSize: 10,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 0.3,
                 ),
               ),
-              if (isNew) ...[
-                const SizedBox(width: 8),
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                  decoration: BoxDecoration(
-                    color: scheme.secondary,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Text(
-                    'NEW',
-                    style: TextStyle(
-                      color: scheme.onSecondary,
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 0.3,
-                    ),
-                  ),
-                ),
-              ],
-            ],
-          ),
-        ),
+            ),
+          ],
+        ],
       ),
     );
   }
