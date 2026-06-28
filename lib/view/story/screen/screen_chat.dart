@@ -93,9 +93,12 @@ class _ChatBodyState extends State<_ChatBody> {
     super.dispose();
   }
 
-  /// 탭으로 다음 말풍선을 연다. 가벼운 햅틱으로 진행을 손끝에 전한다.
+  /// 탭으로 다음 말풍선을 연다. 새 말풍선이 실제로 펼쳐질 때만
+  /// 가벼운 햅틱으로 진행을 손끝에 전한다.
   void _onTapReveal() {
-    HapticFeedback.lightImpact();
+    if (_viewModel.hasNext) {
+      HapticFeedback.lightImpact();
+    }
     _viewModel.revealNext();
   }
 

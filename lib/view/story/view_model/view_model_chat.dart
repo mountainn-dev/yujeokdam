@@ -25,13 +25,16 @@ class ChatViewModel extends BaseViewModel {
   bool _completed = false;
   bool get isCompleted => _completed;
 
+  /// 아직 펼칠 다음 메시지가 남았는지.
+  bool get hasNext => _visibleCount < _story.messages.length;
+
   /// 화면 탭 시 다음 메시지를 노출하고 진행도를 저장한다. 마지막 도달 시 열람 처리한다.
   Future<void> revealNext() async {
-    final story = _story;
-    if (_visibleCount >= story.messages.length) {
+    if (!hasNext) {
       return;
     }
 
+    final story = _story;
     _visibleCount += 1;
     notifyListeners();
     // 진행도 자동저장(베스트에포트) — 실패해도 읽기는 이어진다.
