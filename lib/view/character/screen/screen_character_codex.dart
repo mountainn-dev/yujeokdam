@@ -148,7 +148,11 @@ class _CardShell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    // 그리드 셀을 꽉 채워 모든 카드의 가로·세로를 동일하게 고정한다.
+    // (콘텐츠 높이에 따라 카드가 달라지던 문제 해소)
     return Container(
+      width: double.infinity,
+      height: double.infinity,
       decoration: BoxDecoration(
         color: faded
             ? scheme.surfaceContainer
