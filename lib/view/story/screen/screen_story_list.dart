@@ -77,7 +77,6 @@ class _StoryListBody extends StatelessWidget {
                         _StoryRow(story: stories[index]),
                   ),
           ),
-          const _AmbientFooter(),
         ],
       ),
     );
@@ -245,31 +244,6 @@ class _ProgressLabel extends StatelessWidget {
         color: scheme.onSurfaceVariant,
         fontSize: 13,
         fontWeight: FontWeight.w600,
-      ),
-    );
-  }
-}
-
-/// 목록 하단 고정 안내문 — 위치 기반 도착 컨셉을 은은히 알린다.
-class _AmbientFooter extends StatelessWidget {
-  const _AmbientFooter();
-
-  @override
-  Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        border: Border(top: BorderSide(color: scheme.outlineVariant)),
-      ),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-      child: Text(
-        '유적지 근처에 가면 자동으로 이야기가 도착합니다 ✨',
-        textAlign: TextAlign.center,
-        style: Theme.of(context)
-            .textTheme
-            .bodySmall
-            ?.copyWith(color: scheme.onSurfaceVariant),
       ),
     );
   }
