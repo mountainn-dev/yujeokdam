@@ -1,4 +1,4 @@
-package com.example.yujeokdam
+package com.mountain.yujeokdam
 
 import io.flutter.embedding.android.FlutterActivity
 
