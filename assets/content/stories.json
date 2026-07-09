@@ -1,0 +1,292 @@
+[
+  {
+    "id": "story_seochulji_01",
+    "title": "서출지, 까마귀가 전한 편지",
+    "site_id": "site_seochulji",
+    "character_ids": ["soji_king", "court_lady", "monk"],
+    "tags": ["신라", "설화", "사금갑"],
+    "sources": ["삼국유사 권1 기이편 사금갑(射琴匣)"],
+    "messages": [
+      {
+        "type": "narration",
+        "text": "신라 소지왕 10년, 정월 대보름. 왕이 천천정으로 거둥하던 길이었다."
+      },
+      {
+        "type": "chat",
+        "character_id": "soji_king",
+        "text": "저 까마귀와 쥐가 어찌 이리 소란이냐. 쥐가… 사람 말을 하는구나?"
+      },
+      {
+        "type": "narration",
+        "text": "쥐가 사람의 말로 아뢰었다. \"이 까마귀가 가는 곳을 쫓으소서.\""
+      },
+      {
+        "type": "chat",
+        "character_id": "soji_king",
+        "text": "무사를 시켜 까마귀를 뒤따르게 하라."
+      },
+      {
+        "type": "narration",
+        "text": "까마귀를 쫓던 무사는 연못가에서 한 노인을 만나 글이 적힌 봉투를 받았다. 겉에는 이렇게 쓰여 있었다."
+      },
+      {
+        "type": "narration",
+        "text": "\"떼어 보면 둘이 죽고, 떼지 않으면 하나가 죽는다.\""
+      },
+      {
+        "type": "chat",
+        "character_id": "soji_king",
+        "text": "둘이 죽느니 차라리 열어 보지 않는 편이 낫겠다."
+      },
+      {
+        "type": "narration",
+        "text": "그러나 일관이 다급히 아뢰었다. \"하나란 곧 임금을 가리킵니다.\" 왕이 봉투를 열자 안에는 단 한 줄이 있었다."
+      },
+      {
+        "type": "narration",
+        "text": "\"거문고 갑을 쏘라(射琴匣).\""
+      },
+      {
+        "type": "chat",
+        "character_id": "soji_king",
+        "text": "궁으로 돌아가 거문고 갑을 향해 활을 겨눠라!"
+      },
+      {
+        "type": "narration",
+        "text": "화살이 거문고 갑을 꿰뚫자, 그 안에 숨어 있던 두 사람이 쓰러졌다."
+      },
+      {
+        "type": "chat",
+        "character_id": "monk",
+        "text": "…발각되었구나."
+      },
+      {
+        "type": "chat",
+        "character_id": "court_lady",
+        "text": "용서하소서, 전하…"
+      },
+      {
+        "type": "narration",
+        "text": "이로부터 글을 보내 왕을 구한 그 연못을 서출지(書出池), 글이 나온 못이라 불렀다."
+      }
+    ]
+  },
+  {
+    "id": "story_bulguksa_01",
+    "title": "불국사, 두 생의 부모를 위하여",
+    "site_id": "site_bulguksa",
+    "character_ids": ["kim_daeseong", "gyeongjo", "kim_munryang"],
+    "tags": ["통일신라", "설화", "효"],
+    "sources": ["삼국유사 권5 효선편 대성효이세부모(大城孝二世父母)"],
+    "messages": [
+      {
+        "type": "narration",
+        "text": "경주 모량리, 가난한 여인 경조에게는 머리가 크고 이마가 평평해 '대성'이라 불리는 아이가 있었다."
+      },
+      {
+        "type": "chat",
+        "character_id": "gyeongjo",
+        "text": "품을 팔아 겨우 얻은 밭 몇 이랑뿐인데… 대성아, 흥륜사에서 보시를 권하는구나."
+      },
+      {
+        "type": "chat",
+        "character_id": "kim_daeseong",
+        "text": "어머니, 전생에 닦지 못해 이리 가난한 것이라면, 지금이라도 보시해 다음 생을 기약해요."
+      },
+      {
+        "type": "narration",
+        "text": "밭을 모두 절에 바친 지 얼마 되지 않아 대성은 세상을 떠났다. 그날 밤, 재상 김문량의 집에 하늘의 외침이 들렸다."
+      },
+      {
+        "type": "narration",
+        "text": "\"모량리 대성이라는 아이가 이제 네 집에 태어나리라.\""
+      },
+      {
+        "type": "chat",
+        "character_id": "kim_munryang",
+        "text": "갓 태어난 아이가 이레 동안 손을 펴지 않더니… 펴 보니 '대성(大城)' 두 글자를 새긴 금간자를 쥐고 있구나."
+      },
+      {
+        "type": "chat",
+        "character_id": "kim_munryang",
+        "text": "이는 전생의 그 아이가 분명하다. 모량리의 옛 어머니를 모셔와 함께 봉양하라."
+      },
+      {
+        "type": "narration",
+        "text": "장성한 대성은 사냥을 즐겼다. 어느 날 토함산에서 곰 한 마리를 잡고 잠이 들었는데, 꿈에 그 곰이 귀신이 되어 나타났다."
+      },
+      {
+        "type": "chat",
+        "character_id": "kim_daeseong",
+        "text": "…내가 한낱 즐거움으로 목숨을 해쳤구나. 깨어나거든 너를 위해 절을 세우리라."
+      },
+      {
+        "type": "narration",
+        "text": "그 뒤로 대성은 사냥을 끊었다. 그리고 두 생의 부모를 위해 두 채의 절을 일으켰다."
+      },
+      {
+        "type": "chat",
+        "character_id": "kim_daeseong",
+        "text": "현생의 부모를 위해서는 불국사(佛國寺)를, 전생의 부모를 위해서는 석불사를 세우리라."
+      },
+      {
+        "type": "narration",
+        "text": "토함산 자락에 오른 불국사와 석불사(오늘의 석굴암)는, 그렇게 한 사람의 두 생을 향한 효심에서 비롯되었다고 전한다."
+      }
+    ]
+  },
+  {
+    "id": "story_cheomseongdae_01",
+    "title": "첨성대, 별을 읽는 여왕",
+    "site_id": "site_cheomseongdae",
+    "character_ids": ["queen_seondeok", "minister_eulje"],
+    "tags": ["신라", "선덕여왕", "천문"],
+    "sources": [
+      "삼국유사 권1 기이편 선덕왕지기삼사(善德王知幾三事)",
+      "삼국사기 신라본기 선덕왕"
+    ],
+    "messages": [
+      {
+        "type": "narration",
+        "text": "신라 최초의 여왕, 선덕. 당 태종이 보낸 모란 그림과 씨앗을 두고 여왕이 말했다."
+      },
+      {
+        "type": "chat",
+        "character_id": "queen_seondeok",
+        "text": "이 꽃은 필시 향기가 없을 것이오."
+      },
+      {
+        "type": "chat",
+        "character_id": "minister_eulje",
+        "text": "어찌 그리 아십니까?"
+      },
+      {
+        "type": "chat",
+        "character_id": "queen_seondeok",
+        "text": "그림에 나비가 없지 않소. 짝 없는 나를 빗댄 것이나, 꽃의 이치는 속이지 못하지요."
+      },
+      {
+        "type": "narration",
+        "text": "이윽고 씨앗이 피어나니 과연 향기가 없었다. 신하들은 여왕의 헤아림에 탄복했다."
+      },
+      {
+        "type": "chat",
+        "character_id": "queen_seondeok",
+        "text": "헤아림은 신묘함이 아니라 관찰이오. 하늘의 별도 그러하니, 별의 운행을 살펴 농사의 때를 백성에게 일러야겠소."
+      },
+      {
+        "type": "chat",
+        "character_id": "minister_eulje",
+        "text": "하여 돌을 쌓아 별을 우러르는 대(臺)를 세우자 하심이군요."
+      },
+      {
+        "type": "narration",
+        "text": "스물일곱 단의 돌을 굽이지게 쌓아 올린 대가 서라벌 한복판에 섰다. 별을 살피는 첨성대(瞻星臺)였다."
+      },
+      {
+        "type": "chat",
+        "character_id": "queen_seondeok",
+        "text": "별의 자리를 알면 절기를 알고, 절기를 알면 씨 뿌릴 날을 안다. 이 대(臺)는 백성의 달력이오."
+      },
+      {
+        "type": "narration",
+        "text": "동양에 현존하는 가장 오래된 천문대는, 백성의 하루를 헤아리려던 여왕의 마음에서 비롯되었다고 전한다."
+      }
+    ]
+  },
+  {
+    "id": "story_donggung_wolji_01",
+    "title": "월지, 통일의 임금이 판 연못",
+    "site_id": "site_donggung_wolji",
+    "character_ids": ["king_munmu", "minister_eulje"],
+    "tags": ["통일신라", "문무왕", "조경"],
+    "sources": ["삼국사기 신라본기 문무왕 14년(674)"],
+    "messages": [
+      {
+        "type": "narration",
+        "text": "삼국을 하나로 아우른 문무왕 14년, 왕은 궁성 동편에 새 궁을 짓고 그 안에 못을 파게 했다."
+      },
+      {
+        "type": "chat",
+        "character_id": "king_munmu",
+        "text": "오랜 전쟁이 끝났소. 이제 이 못에 산을 만들고 화초를 심으며, 진기한 새와 짐승을 기르려 하오."
+      },
+      {
+        "type": "chat",
+        "character_id": "minister_eulje",
+        "text": "전하, 못의 모양을 어찌 잡을까요?"
+      },
+      {
+        "type": "chat",
+        "character_id": "king_munmu",
+        "text": "어느 자리에 서도 못의 끝이 한눈에 다 들지 않게 하시오. 굽이마다 새 경치가 열리도록."
+      },
+      {
+        "type": "narration",
+        "text": "못가에는 봉우리를 본뜬 세 개의 섬과 열두 봉우리가 둘러섰다. 물에는 무산십이봉의 뜻을 담았다."
+      },
+      {
+        "type": "chat",
+        "character_id": "minister_eulje",
+        "text": "물에 비친 누각이 하늘과 맞닿은 듯합니다. 사신을 맞고 연회를 여는 자리로 손색이 없습니다."
+      },
+      {
+        "type": "chat",
+        "character_id": "king_munmu",
+        "text": "통일은 칼로 이루었으나, 지킴은 다스림으로 이루는 법이오. 이 물빛이 그 다스림의 거울이 되기를."
+      },
+      {
+        "type": "narration",
+        "text": "훗날 사람들은 기러기와 오리가 노닌다 하여 이 못을 안압지라 불렀고, 발굴로 본래 이름이 '월지(月池)', 달을 담은 못임이 밝혀졌다."
+      }
+    ]
+  },
+  {
+    "id": "story_poseokjeong_01",
+    "title": "포석정, 잔이 멈추던 밤",
+    "site_id": "site_poseokjeong",
+    "character_ids": ["king_gyeongae", "gyeon_hwon"],
+    "tags": ["신라", "후삼국", "멸망"],
+    "sources": [
+      "삼국사기 신라본기 경애왕 4년(927)",
+      "삼국유사 권2 기이편"
+    ],
+    "messages": [
+      {
+        "type": "narration",
+        "text": "후삼국이 맞부딪던 927년 늦가을. 서라벌은 기울어가는 나라의 마지막 빛 속에 있었다."
+      },
+      {
+        "type": "narration",
+        "text": "포석정, 굽이진 돌도랑에 술잔을 띄우고 시를 읊는 유상곡수(流觴曲水)의 자리. 임금과 신하들이 잔을 돌리고 있었다."
+      },
+      {
+        "type": "chat",
+        "character_id": "king_gyeongae",
+        "text": "잔이 내 앞에 멈추기 전에 시 한 수를 짓는다… 가을 물소리가 거문고 같지 않은가."
+      },
+      {
+        "type": "narration",
+        "text": "그 순간, 성문 밖에서 말발굽 소리가 땅을 흔들었다. 후백제 견훤의 군사가 이미 서라벌에 들이닥친 것이다."
+      },
+      {
+        "type": "chat",
+        "character_id": "gyeon_hwon",
+        "text": "연회를 즐길 때가 아니거늘. 나라의 운이 다한 자리에 내가 왔다."
+      },
+      {
+        "type": "chat",
+        "character_id": "king_gyeongae",
+        "text": "…물 위의 잔이 멈추었구나. 나의 시도, 나의 나라도 여기서 멎는가."
+      },
+      {
+        "type": "narration",
+        "text": "견훤의 군사는 도성을 짓밟았고, 경애왕은 비극적인 최후를 맞았다."
+      },
+      {
+        "type": "narration",
+        "text": "흥겨운 풍류의 자리였던 포석정은, 그 밤 이후 천년 신라의 황혼을 증언하는 돌도랑으로 남았다."
+      }
+    ]
+  }
+]

@@ -1,7 +1,7 @@
 name: yujeokdam
 description: "A new Flutter project."
 publish_to: 'none'
-version: 0.1.0
+version: 1.0.0+2
 
 environment:
   sdk: ^3.5.4
@@ -9,11 +9,33 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_dotenv: ^6.0.1
+  get_it: ^9.2.1
+  http: ^1.6.0
+  json_annotation: ^4.9.0
+  provider: ^6.1.5+1
+  shared_preferences: ^2.5.3
+  url_launcher: ^6.3.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
+  build_runner: ^2.4.13
+  json_serializable: ^6.9.0
+  flutter_launcher_icons: ^0.14.4
+
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "tool/launcher_icon/legacy.png"
+  adaptive_icon_background: "#8C5A3B"
+  adaptive_icon_foreground: "tool/launcher_icon/foreground.png"
+  min_sdk_android: 21
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/content/
+    - assets/portraits/
+    - .env

@@ -41,3 +41,10 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# OMC (oh-my-claudecode) 런타임 상태
+.omc/
+.claude/scheduled_tasks.lock
+
+# TourAPI 서비스 키 (.env — 실제 키는 커밋하지 않음. .env.example 참고)
+.env
