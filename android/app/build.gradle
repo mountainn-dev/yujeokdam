@@ -14,7 +14,9 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     namespace = "com.mountain.yujeokdam"
-    compileSdk = flutter.compileSdkVersion
+    // Play 정책: 신규·업데이트 앱은 API 35(Android 15) 이상 타겟 필요.
+    // flutter.*SdkVersion 은 이 Flutter 버전에서 34 라 명시적으로 고정한다.
+    compileSdk = 35
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -32,7 +34,7 @@ android {
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
+        targetSdk = 35
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
