@@ -1,4 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- TourAPI 등 네트워크 호출에 필요. 릴리스 빌드는 debug 매니페스트의 권한을 상속하지 않는다. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:label="유적담"
         android:name="${applicationName}"
