@@ -11,3 +11,8 @@ GeneratedPluginRegistrant.java
 key.properties
 **/*.keystore
 **/*.jks
+
+# fastlane — 서비스 계정 키와 실행 산출물은 커밋하지 않는다.
+fastlane/play-service-account.json
+fastlane/report.xml
+fastlane/README.md

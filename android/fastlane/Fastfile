@@ -1,0 +1,38 @@
+default_platform(:android)
+
+AAB_PATH = "../build/app/outputs/bundle/release/app-release.aab".freeze
+
+platform :android do
+  desc "서비스 계정 키·API 연결 검증 (실제 게시 없음)"
+  lane :validate do
+    validate_play_store_json_key(json_key: "fastlane/play-service-account.json")
+    build_appbundle
+    upload_to_play_store(
+      track: "production",
+      aab: AAB_PATH,
+      validate_only: true,
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+    )
+  end
+
+  desc "AAB 빌드 후 Play 프로덕션 트랙에 업로드 (업로드 = 심사 제출)"
+  lane :production do
+    build_appbundle
+    upload_to_play_store(
+      track: "production",
+      release_status: "completed",
+      aab: AAB_PATH,
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+    )
+  end
+
+  desc "flutter build appbundle 실행"
+  private_lane :build_appbundle do
+    # fastlane 은 android/ 에서 실행되므로 프로젝트 루트로 올라가 빌드한다.
+    sh("cd ../.. && flutter build appbundle")
+  end
+end
