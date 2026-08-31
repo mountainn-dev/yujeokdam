@@ -3,9 +3,19 @@
     "id": "story_seochulji_01",
     "title": "서출지, 까마귀가 전한 편지",
     "site_id": "site_seochulji",
-    "character_ids": ["soji_king", "court_lady", "monk"],
-    "tags": ["신라", "설화", "사금갑"],
-    "sources": ["삼국유사 권1 기이편 사금갑(射琴匣)"],
+    "character_ids": [
+      "soji_king",
+      "court_lady",
+      "monk"
+    ],
+    "tags": [
+      "신라",
+      "설화",
+      "사금갑"
+    ],
+    "sources": [
+      "삼국유사 권1 기이편 사금갑(射琴匣)"
+    ],
     "messages": [
       {
         "type": "narration",
@@ -75,9 +85,19 @@
     "id": "story_bulguksa_01",
     "title": "불국사, 두 생의 부모를 위하여",
     "site_id": "site_bulguksa",
-    "character_ids": ["kim_daeseong", "gyeongjo", "kim_munryang"],
-    "tags": ["통일신라", "설화", "효"],
-    "sources": ["삼국유사 권5 효선편 대성효이세부모(大城孝二世父母)"],
+    "character_ids": [
+      "kim_daeseong",
+      "gyeongjo",
+      "kim_munryang"
+    ],
+    "tags": [
+      "통일신라",
+      "설화",
+      "효"
+    ],
+    "sources": [
+      "삼국유사 권5 효선편 대성효이세부모(大城孝二世父母)"
+    ],
     "messages": [
       {
         "type": "narration",
@@ -139,8 +159,15 @@
     "id": "story_cheomseongdae_01",
     "title": "첨성대, 별을 읽는 여왕",
     "site_id": "site_cheomseongdae",
-    "character_ids": ["queen_seondeok", "minister_eulje"],
-    "tags": ["신라", "선덕여왕", "천문"],
+    "character_ids": [
+      "queen_seondeok",
+      "minister_eulje"
+    ],
+    "tags": [
+      "신라",
+      "선덕여왕",
+      "천문"
+    ],
     "sources": [
       "삼국유사 권1 기이편 선덕왕지기삼사(善德王知幾三事)",
       "삼국사기 신라본기 선덕왕"
@@ -198,9 +225,18 @@
     "id": "story_donggung_wolji_01",
     "title": "월지, 통일의 임금이 판 연못",
     "site_id": "site_donggung_wolji",
-    "character_ids": ["king_munmu", "minister_eulje"],
-    "tags": ["통일신라", "문무왕", "조경"],
-    "sources": ["삼국사기 신라본기 문무왕 14년(674)"],
+    "character_ids": [
+      "king_munmu",
+      "minister_eulje"
+    ],
+    "tags": [
+      "통일신라",
+      "문무왕",
+      "조경"
+    ],
+    "sources": [
+      "삼국사기 신라본기 문무왕 14년(674)"
+    ],
     "messages": [
       {
         "type": "narration",
@@ -245,8 +281,15 @@
     "id": "story_poseokjeong_01",
     "title": "포석정, 잔이 멈추던 밤",
     "site_id": "site_poseokjeong",
-    "character_ids": ["king_gyeongae", "gyeon_hwon"],
-    "tags": ["신라", "후삼국", "멸망"],
+    "character_ids": [
+      "king_gyeongae",
+      "gyeon_hwon"
+    ],
+    "tags": [
+      "신라",
+      "후삼국",
+      "멸망"
+    ],
     "sources": [
       "삼국사기 신라본기 경애왕 4년(927)",
       "삼국유사 권2 기이편"
@@ -286,6 +329,1049 @@
       {
         "type": "narration",
         "text": "흥겨운 풍류의 자리였던 포석정은, 그 밤 이후 천년 신라의 황혼을 증언하는 돌도랑으로 남았다."
+      }
+    ]
+  },
+  {
+    "id": "story_seokguram_01",
+    "title": "석굴암, 하늘이 덮은 천장",
+    "site_id": "site_seokguram",
+    "character_ids": [
+      "kim_daeseong"
+    ],
+    "tags": [
+      "통일신라",
+      "설화",
+      "효"
+    ],
+    "sources": [
+      "삼국유사 권5 효선편 대성효이세부모(大城孝二世父母)"
+    ],
+    "messages": [
+      {
+        "type": "narration",
+        "text": "김대성은 현생의 부모를 위해 불국사를 세우면서, 전생의 부모를 위해 토함산에 석불사를 함께 지었다."
+      },
+      {
+        "type": "chat",
+        "character_id": "kim_daeseong",
+        "text": "가난 속에 나를 길러 주신 전생의 어머니를 위해서다. 토함산의 돌을 다듬어 부처님을 모실 석굴을 짓겠다."
+      },
+      {
+        "type": "narration",
+        "text": "대성은 돌을 다듬어 둥근 감실을 쌓고 본존불을 새겼다. 마지막으로 천장을 덮을 큰 돌 하나가 남았다."
+      },
+      {
+        "type": "chat",
+        "character_id": "kim_daeseong",
+        "text": "이 돌만 얹으면 오랜 공사가 끝난다. 조심히… 조심히 올려라!"
+      },
+      {
+        "type": "narration",
+        "text": "그러나 천장 돌은 갑자기 세 조각으로 갈라져 버렸다."
+      },
+      {
+        "type": "chat",
+        "character_id": "kim_daeseong",
+        "text": "아…! 하늘이 내 정성을 부족하다 하시는가."
+      },
+      {
+        "type": "narration",
+        "text": "대성은 분하고 애통해하다 그 자리에서 잠이 들었다. 밤중에 천신이 내려와 갈라진 돌을 다 얹어 완성하고 돌아갔다."
+      },
+      {
+        "type": "chat",
+        "character_id": "kim_daeseong",
+        "text": "꿈이 아니었구나. 갈라진 자국 그대로, 천장이 덮여 있다니!"
+      },
+      {
+        "type": "narration",
+        "text": "잠에서 깬 대성은 남쪽 고개로 달려 올라가 향나무를 태워 천신을 공양했다. 그 고개를 향령(香嶺)이라 부른다."
+      },
+      {
+        "type": "narration",
+        "text": "석굴암 천장의 덮개돌에는 지금도 세 갈래로 갈라진 흔적이 남아 있다."
+      }
+    ]
+  },
+  {
+    "id": "story_gameunsa_01",
+    "title": "감은사, 용이 드나드는 섬돌",
+    "site_id": "site_gameunsa",
+    "character_ids": [
+      "king_sinmun"
+    ],
+    "tags": [
+      "통일신라",
+      "호국",
+      "감은사"
+    ],
+    "sources": [
+      "삼국유사 권2 기이편 만파식적(萬波息笛)"
+    ],
+    "messages": [
+      {
+        "type": "narration",
+        "text": "문무왕은 왜병을 진압하고자 동해 어귀에 절을 짓기 시작했으나, 다 이루지 못하고 세상을 떠나 바다의 용이 되었다."
+      },
+      {
+        "type": "chat",
+        "character_id": "king_sinmun",
+        "text": "아바마마께서 짓다 만 절이다. 내 손으로 반드시 완성하리라."
+      },
+      {
+        "type": "narration",
+        "text": "신문왕은 즉위 이듬해인 682년 절을 완성하고, 아버지의 은혜에 감사한다는 뜻으로 감은사(感恩寺)라 이름 지었다."
+      },
+      {
+        "type": "chat",
+        "character_id": "king_sinmun",
+        "text": "용이 되신 아바마마께서 절에 드나드실 수 있도록, 금당 섬돌 아래에 동쪽으로 구멍을 내어라."
+      },
+      {
+        "type": "narration",
+        "text": "바다의 용이 절에 들어와 서릴 수 있게 한 배려였다. 훗날 왕은 이 절 앞바다에서 아버지가 내린 보물, 만파식적을 얻는다."
+      },
+      {
+        "type": "chat",
+        "character_id": "king_sinmun",
+        "text": "아바마마, 살아서는 삼국을 하나로 모으시고, 돌아가셔서도 이 나라를 지키시는군요."
+      },
+      {
+        "type": "narration",
+        "text": "절은 사라지고 지금은 동서 두 삼층석탑만 남았다. 동해를 바라보는 두 탑이 그날의 마음을 전한다."
+      }
+    ]
+  },
+  {
+    "id": "story_igyeondae_01",
+    "title": "이견대, 만 개의 파도를 재우는 피리",
+    "site_id": "site_igyeondae",
+    "character_ids": [
+      "king_sinmun",
+      "sea_dragon"
+    ],
+    "tags": [
+      "통일신라",
+      "설화",
+      "만파식적"
+    ],
+    "sources": [
+      "삼국유사 권2 기이편 만파식적(萬波息笛)"
+    ],
+    "messages": [
+      {
+        "type": "narration",
+        "text": "신문왕 2년 5월, 해관 파진찬 박숙청이 아뢰었다. \"동해의 작은 산 하나가 물결을 따라 감은사 쪽으로 떠 왔다 갔다 하옵니다.\""
+      },
+      {
+        "type": "chat",
+        "character_id": "king_sinmun",
+        "text": "기이한 일이로다. 일관 김춘질에게 점을 치게 하라."
+      },
+      {
+        "type": "narration",
+        "text": "일관이 아뢰었다. \"돌아가신 문무대왕께서 바다의 용이 되시고, 김유신 공 또한 천신이 되셨습니다. 두 성인이 나라를 지킬 보물을 내리려 하십니다.\""
+      },
+      {
+        "type": "narration",
+        "text": "왕이 기뻐하며 바닷가 언덕에 올라 그 산을 바라보았다. 산 위의 대나무는 낮에는 둘로 갈라지고 밤에는 하나로 합쳐졌다."
+      },
+      {
+        "type": "chat",
+        "character_id": "king_sinmun",
+        "text": "낮에는 둘, 밤에는 하나라. 용이여, 이 대나무는 어찌 갈라졌다 합쳐지는 것인가?"
+      },
+      {
+        "type": "chat",
+        "character_id": "sea_dragon",
+        "text": "한 손으로 치면 소리가 나지 않으나, 두 손이 마주치면 소리가 나는 것과 같은 이치입니다. 대왕께서 이 대나무로 피리를 만들어 불면 천하가 화평할 것입니다."
+      },
+      {
+        "type": "narration",
+        "text": "왕이 그 대나무로 피리를 만들어 부니, 적병이 물러가고 병이 나았으며 가뭄에는 비가 오고 거센 파도가 잠잠해졌다."
+      },
+      {
+        "type": "narration",
+        "text": "만 개의 파도를 재우는 피리, 만파식적(萬波息笛)이다. 왕이 용을 본 이 언덕을 이견대(利見臺)라 부른다."
+      }
+    ]
+  },
+  {
+    "id": "story_munmu_tomb_01",
+    "title": "대왕암, 용이 되어 지키리라",
+    "site_id": "site_munmu_tomb",
+    "character_ids": [
+      "king_munmu",
+      "jiui_monk"
+    ],
+    "tags": [
+      "통일신라",
+      "호국",
+      "수중릉"
+    ],
+    "sources": [
+      "삼국유사 권2 기이편 문호왕법민(文虎王法敏)",
+      "삼국사기 신라본기 문무왕 21년"
+    ],
+    "messages": [
+      {
+        "type": "narration",
+        "text": "문무왕은 평소 지의법사에게 이렇게 말하곤 했다."
+      },
+      {
+        "type": "chat",
+        "character_id": "king_munmu",
+        "text": "짐은 죽은 뒤 나라를 지키는 큰 용이 되겠소. 불법을 받들고 이 나라를 수호하리다."
+      },
+      {
+        "type": "chat",
+        "character_id": "jiui_monk",
+        "text": "전하, 용은 축생의 응보이온데 어찌 그런 말씀을 하시옵니까."
+      },
+      {
+        "type": "chat",
+        "character_id": "king_munmu",
+        "text": "내 세상의 영화를 싫어한 지 오래요. 추한 응보로 짐승이 된다 해도, 나라를 지킬 수 있다면 짐의 뜻에 맞소."
+      },
+      {
+        "type": "narration",
+        "text": "681년 왕이 세상을 떠나자, 신하들은 유언에 따라 동해 어귀의 큰 바위 위에서 장사 지냈다."
+      },
+      {
+        "type": "narration",
+        "text": "사람들은 왕이 용이 되었다고 전하며, 그 바위를 대왕암(大王岩)이라 불렀다."
+      },
+      {
+        "type": "narration",
+        "text": "세계에서 유례를 찾기 어려운 바닷속 왕릉. 쉼 없이 밀려오는 파도 소리가 그의 순찰이다."
+      }
+    ]
+  },
+  {
+    "id": "story_gyerim_01",
+    "title": "계림, 흰 닭이 운 숲",
+    "site_id": "site_gyerim",
+    "character_ids": [
+      "king_talhae",
+      "hogong"
+    ],
+    "tags": [
+      "신라",
+      "설화",
+      "김알지"
+    ],
+    "sources": [
+      "삼국유사 권1 기이편 김알지 탈해왕대(金閼智 脫解王代)"
+    ],
+    "messages": [
+      {
+        "type": "narration",
+        "text": "탈해왕 때, 호공이 밤에 월성 서쪽 마을을 지나는데 시림(始林) 숲 속이 환하게 빛나고 있었다."
+      },
+      {
+        "type": "chat",
+        "character_id": "hogong",
+        "text": "자줏빛 구름이 하늘에서 땅까지 뻗었구나. 구름 속 나뭇가지에… 황금 궤짝이 걸려 있다?"
+      },
+      {
+        "type": "narration",
+        "text": "궤짝에서는 빛이 흘러나오고, 나무 밑에서는 흰 닭이 울고 있었다. 호공은 그 길로 달려가 왕께 아뢰었다."
+      },
+      {
+        "type": "chat",
+        "character_id": "king_talhae",
+        "text": "과인이 직접 가 보겠다. 숲으로 안내하라."
+      },
+      {
+        "type": "narration",
+        "text": "왕이 궤짝을 열자 사내아이가 누워 있다가 곧 일어났다."
+      },
+      {
+        "type": "chat",
+        "character_id": "king_talhae",
+        "text": "혁거세왕의 옛일과 꼭 같지 않으냐. 하늘이 내게 아이를 내리셨도다!"
+      },
+      {
+        "type": "narration",
+        "text": "아이는 총명하고 지략이 남달랐다. 알지(閼智)라 이름 짓고, 금궤에서 나왔으므로 성을 김(金)씨라 하였다. 경주 김씨의 시조 김알지다."
+      },
+      {
+        "type": "narration",
+        "text": "흰 닭이 울던 시림은 이때부터 계림(鷄林)이라 불렸고, 한때는 나라 이름으로도 쓰였다."
+      }
+    ]
+  },
+  {
+    "id": "story_wolseong_01",
+    "title": "월성, 숫돌과 숯이 고른 집터",
+    "site_id": "site_wolseong",
+    "character_ids": [
+      "king_talhae",
+      "hogong"
+    ],
+    "tags": [
+      "신라",
+      "설화",
+      "월성"
+    ],
+    "sources": [
+      "삼국유사 권1 기이편 제4 탈해왕(第四 脫解王)"
+    ],
+    "messages": [
+      {
+        "type": "narration",
+        "text": "왕이 되기 전, 탈해는 토함산에 올라 이레를 머물며 살 만한 땅을 살폈다."
+      },
+      {
+        "type": "chat",
+        "character_id": "king_talhae",
+        "text": "저 초사흘 달 모양의 봉우리, 오래 살 만한 길지로다. 허나 이미 호공의 집이 들어서 있으니…."
+      },
+      {
+        "type": "narration",
+        "text": "탈해는 몰래 그 집 곁에 숫돌과 숯을 묻어 두고, 이튿날 아침 그 집을 찾아갔다."
+      },
+      {
+        "type": "chat",
+        "character_id": "king_talhae",
+        "text": "이 집은 본디 우리 조상이 살던 집이오."
+      },
+      {
+        "type": "chat",
+        "character_id": "hogong",
+        "text": "무슨 소리요. 여기는 대대로 내가 살아온 집이오!"
+      },
+      {
+        "type": "narration",
+        "text": "다툼은 관가로 갔다. 관원이 물었다. \"그대의 집이라는 증거가 있는가?\""
+      },
+      {
+        "type": "chat",
+        "character_id": "king_talhae",
+        "text": "우리 집안은 본래 대장장이였소. 잠시 이웃 고을에 간 사이 남이 차지한 것이니, 땅을 파 보면 알 것이오."
+      },
+      {
+        "type": "narration",
+        "text": "땅을 파니 과연 숫돌과 숯이 나왔고, 탈해는 그 집을 차지했다."
+      },
+      {
+        "type": "narration",
+        "text": "남해왕은 이 소식을 듣고 탈해가 슬기로운 사람임을 알아보아 맏공주를 아내로 주었다. 훗날 이 터에 쌓은 성이 신라 천년의 궁성, 월성(月城)이다."
+      }
+    ]
+  },
+  {
+    "id": "story_talhae_tomb_01",
+    "title": "탈해왕릉, 까치가 지킨 궤짝",
+    "site_id": "site_talhae_tomb",
+    "character_ids": [
+      "ajinuiseon",
+      "king_talhae"
+    ],
+    "tags": [
+      "신라",
+      "설화",
+      "석탈해"
+    ],
+    "sources": [
+      "삼국유사 권1 기이편 제4 탈해왕(第四 脫解王)"
+    ],
+    "messages": [
+      {
+        "type": "narration",
+        "text": "남해왕 때, 아진포 바닷가. 고기잡이 할멈 아진의선이 바다를 보며 고개를 갸웃했다."
+      },
+      {
+        "type": "chat",
+        "character_id": "ajinuiseon",
+        "text": "이 바다 가운데는 바위 하나 없는데, 웬 까치들이 저리 모여 우는고?"
+      },
+      {
+        "type": "narration",
+        "text": "배를 끌어당겨 보니 까치들이 배 위에 모여 있고, 배 안에는 길이 스무 자의 궤짝이 실려 있었다."
+      },
+      {
+        "type": "narration",
+        "text": "궤짝을 열자 단정한 사내아이가 보물과 노비들과 함께 나왔다. 이레 동안 대접하자 아이가 입을 열었다."
+      },
+      {
+        "type": "chat",
+        "character_id": "king_talhae",
+        "text": "나는 용성국의 왕자요. 사람이 아닌 알로 태어났다 하여, 궤짝에 실려 바다를 떠돌았소."
+      },
+      {
+        "type": "chat",
+        "character_id": "ajinuiseon",
+        "text": "알을 벗고 궤를 풀고 나왔으니, 탈해(脫解)라 부르면 되겠구나."
+      },
+      {
+        "type": "narration",
+        "text": "탈해는 지팡이를 끌고 두 종을 데리고 토함산에 올랐다. 훗날 그는 신라 제4대 임금이 된다."
+      },
+      {
+        "type": "narration",
+        "text": "까치 덕에 궤짝을 찾았다 하여 까치 작(鵲) 자에서 새 조(鳥)를 뗀 석(昔)을 성으로 삼았다고 전한다. 경주 석씨의 시조다."
+      }
+    ]
+  },
+  {
+    "id": "story_bunhwangsa_01",
+    "title": "분황사, 눈을 뜬 아이",
+    "site_id": "site_bunhwangsa",
+    "character_ids": [
+      "huimyeong",
+      "huimyeong_child"
+    ],
+    "tags": [
+      "통일신라",
+      "향가",
+      "분황사"
+    ],
+    "sources": [
+      "삼국유사 권3 탑상편 분황사 천수대비 맹아득안(芬皇寺千手大悲 盲兒得眼)"
+    ],
+    "messages": [
+      {
+        "type": "narration",
+        "text": "경덕왕 때 한기리에 사는 여인 희명의 아이가, 태어난 지 다섯 해 만에 갑자기 눈이 멀었다."
+      },
+      {
+        "type": "chat",
+        "character_id": "huimyeong_child",
+        "text": "어머니, 어째서 세상이 캄캄해요? 어머니 얼굴이 보이지 않아요."
+      },
+      {
+        "type": "chat",
+        "character_id": "huimyeong",
+        "text": "가자. 분황사 천수관음께 가자. 천 개의 손에 천 개의 눈을 가지신 분이니, 하나쯤 너에게 주실지도 모른다."
+      },
+      {
+        "type": "narration",
+        "text": "희명은 아이를 안고 분황사 좌전 북쪽 벽에 그린 천수대비 앞에 나아가, 아이에게 노래를 지어 빌게 했다."
+      },
+      {
+        "type": "chat",
+        "character_id": "huimyeong_child",
+        "text": "무릎을 꿇고 두 손을 모아 천수관음께 비옵니다. 천 개의 손, 천 개의 눈, 하나를 놓아 하나를 덜어, 둘 다 없는 이 몸이오니 하나만이라도 주소서."
+      },
+      {
+        "type": "narration",
+        "text": "노래를 마치자, 아이의 눈이 떠졌다."
+      },
+      {
+        "type": "chat",
+        "character_id": "huimyeong_child",
+        "text": "어머니…! 보여요. 어머니 얼굴이 보여요!"
+      },
+      {
+        "type": "chat",
+        "character_id": "huimyeong",
+        "text": "관음보살님, 감사합니다. 감사합니다…."
+      },
+      {
+        "type": "narration",
+        "text": "이때 아이가 부른 향가가 '도천수관음가'로 전한다. 분황사 모전석탑은 지금도 그 자리를 지키고 있다."
+      }
+    ]
+  },
+  {
+    "id": "story_oreung_01",
+    "title": "오릉, 하늘로 돌아간 임금",
+    "site_id": "site_oreung",
+    "character_ids": [
+      "hyeokgeose",
+      "aryeong"
+    ],
+    "tags": [
+      "신라",
+      "건국설화",
+      "시조"
+    ],
+    "sources": [
+      "삼국유사 권1 기이편 신라시조 혁거세왕(新羅始祖 赫居世王)"
+    ],
+    "messages": [
+      {
+        "type": "narration",
+        "text": "나라를 연 혁거세왕은 알영 부인과 함께 예순한 해 동안 신라를 다스렸다. 사람들은 두 사람을 두 성인(二聖)이라 불렀다."
+      },
+      {
+        "type": "chat",
+        "character_id": "hyeokgeose",
+        "text": "부인은 우물가 계룡의 옆구리에서 나고, 나는 알에서 났으니, 우리 둘 다 하늘이 보낸 셈이구려."
+      },
+      {
+        "type": "chat",
+        "character_id": "aryeong",
+        "text": "하늘이 보냈으니, 언젠가는 하늘로 돌아가야겠지요."
+      },
+      {
+        "type": "narration",
+        "text": "혁거세왕은 나라를 다스린 지 61년 만에 하늘로 올라갔다. 이레 뒤 왕의 몸이 다섯으로 흩어져 땅에 떨어졌고, 왕후도 뒤따라 세상을 떠났다."
+      },
+      {
+        "type": "narration",
+        "text": "나라 사람들이 한데 모아 장사 지내려 했으나, 큰 뱀이 나타나 쫓아다니며 막았다."
+      },
+      {
+        "type": "narration",
+        "text": "하는 수 없이 다섯 몸을 다섯 능에 각각 장사 지냈다. 오릉(五陵)이라 하고, 뱀 사(蛇) 자를 써서 사릉(蛇陵)이라고도 부른다."
+      },
+      {
+        "type": "narration",
+        "text": "시조 내외를 모신 다섯 능은 지금도 남산 서북쪽 솔숲에 나란히 누워 있다."
+      }
+    ]
+  },
+  {
+    "id": "story_najeong_01",
+    "title": "나정, 알에서 난 임금",
+    "site_id": "site_najeong",
+    "character_ids": [
+      "sobeoldori",
+      "hyeokgeose"
+    ],
+    "tags": [
+      "신라",
+      "건국설화",
+      "나정"
+    ],
+    "sources": [
+      "삼국유사 권1 기이편 신라시조 혁거세왕(新羅始祖 赫居世王)"
+    ],
+    "messages": [
+      {
+        "type": "narration",
+        "text": "기원전 69년, 임금이 없던 여섯 마을의 촌장들이 알천 언덕에 모였다."
+      },
+      {
+        "type": "chat",
+        "character_id": "sobeoldori",
+        "text": "임금이 없으니 백성이 저마다 제멋대로요. 덕 있는 이를 찾아 임금으로 세웁시다."
+      },
+      {
+        "type": "narration",
+        "text": "높은 곳에 올라 남쪽을 바라보니, 양산 아래 나정(蘿井) 우물 곁에 번개 같은 기운이 땅에 드리웠고, 흰 말 한 마리가 꿇어앉아 절하고 있었다."
+      },
+      {
+        "type": "chat",
+        "character_id": "sobeoldori",
+        "text": "저곳이다! 모두 가 봅시다."
+      },
+      {
+        "type": "narration",
+        "text": "다가가자 말은 길게 울고는 하늘로 올라가 버렸다. 그 자리에는 자줏빛 알 하나가 놓여 있었고, 알을 가르자 단정한 사내아이가 나왔다."
+      },
+      {
+        "type": "narration",
+        "text": "아이를 동천에 목욕시키자 몸에서 광채가 나고, 새와 짐승이 따라 춤추었으며, 천지가 진동하고 해와 달이 맑게 빛났다."
+      },
+      {
+        "type": "chat",
+        "character_id": "sobeoldori",
+        "text": "세상을 밝게 다스릴 아이다. 혁거세(赫居世)라 이름 짓자."
+      },
+      {
+        "type": "narration",
+        "text": "아이가 열세 살이 되자 여섯 마을 어른들은 그를 받들어 임금으로 세웠다."
+      },
+      {
+        "type": "chat",
+        "character_id": "hyeokgeose",
+        "text": "나라 이름은 서라벌이라 하겠소."
+      },
+      {
+        "type": "narration",
+        "text": "신라 천년의 첫 장이 이 우물가에서 열렸다."
+      }
+    ]
+  },
+  {
+    "id": "story_muyeol_tomb_01",
+    "title": "무열왕릉, 치마폭에 담은 꿈",
+    "site_id": "site_muyeol_tomb",
+    "character_ids": [
+      "bohui",
+      "munhui",
+      "kim_yusin",
+      "kim_chunchu"
+    ],
+    "tags": [
+      "신라",
+      "설화",
+      "태종무열왕"
+    ],
+    "sources": [
+      "삼국유사 권1 기이편 태종춘추공(太宗春秋公)"
+    ],
+    "messages": [
+      {
+        "type": "narration",
+        "text": "김유신의 누이 보희가 이상한 꿈을 꾸었다."
+      },
+      {
+        "type": "chat",
+        "character_id": "bohui",
+        "text": "문희야, 간밤 꿈에 내가 서악에 올라 오줌을 누었는데, 서라벌이 온통 잠기지 뭐냐. 망측해라."
+      },
+      {
+        "type": "chat",
+        "character_id": "munhui",
+        "text": "언니, 그 꿈 내가 살게요. 비단 치마를 드릴 테니 나에게 파세요."
+      },
+      {
+        "type": "narration",
+        "text": "문희는 치마폭을 벌려 꿈을 샀다. 열흘 뒤, 유신은 김춘추와 집 앞에서 공을 차다 일부러 그의 옷고름을 밟아 뜯었다."
+      },
+      {
+        "type": "chat",
+        "character_id": "kim_yusin",
+        "text": "이런, 실례했소이다. 마침 집이 가까우니 들어가 꿰매고 가시지요."
+      },
+      {
+        "type": "narration",
+        "text": "유신이 보희에게 바느질을 시키려 하자 보희는 사양했고, 문희가 바늘을 들었다. 그날 이후 춘추공의 발걸음이 잦아졌고, 문희는 아이를 가졌다."
+      },
+      {
+        "type": "chat",
+        "character_id": "kim_yusin",
+        "text": "혼인도 치르지 않고 아이라니! 온 나라가 알도록 이 아이를 불태워 죽이겠다. 마당에 나무를 쌓아라!"
+      },
+      {
+        "type": "narration",
+        "text": "선덕여왕이 남산에 거둥한 날에 맞춰 유신이 연기를 피워 올리자, 왕이 저 연기가 무엇이냐 물었다. 사정을 들은 왕이 곁의 춘추공을 돌아보았다. \"그대가 한 일이구나. 어서 가서 구하라.\""
+      },
+      {
+        "type": "chat",
+        "character_id": "kim_chunchu",
+        "text": "달려가겠나이다. 내 사람을 내가 구하지 않으면 누가 구하겠습니까!"
+      },
+      {
+        "type": "narration",
+        "text": "춘추공은 문희를 아내로 맞았다. 훗날 그는 태종무열왕이 되고, 문희는 문명왕후가 되어 문무왕을 낳았다."
+      },
+      {
+        "type": "narration",
+        "text": "삼국 통일의 문을 연 임금은 선도산 자락에 잠들어 있다. 능 앞에는 거북 받침의 능비가 남아 '태종무열대왕'임을 증언한다."
+      }
+    ]
+  },
+  {
+    "id": "story_kim_yusin_tomb_01",
+    "title": "김유신묘, 세 여신의 경고",
+    "site_id": "site_kim_yusin_tomb",
+    "character_ids": [
+      "kim_yusin",
+      "baekseok",
+      "three_guardians"
+    ],
+    "tags": [
+      "신라",
+      "설화",
+      "김유신"
+    ],
+    "sources": [
+      "삼국유사 권1 기이편 김유신(金庾信)"
+    ],
+    "messages": [
+      {
+        "type": "narration",
+        "text": "젊은 화랑 김유신이 고구려와 백제를 평정할 뜻을 품고 밤낮으로 꾀를 내고 있을 때, 백석이라는 낭도가 다가왔다."
+      },
+      {
+        "type": "chat",
+        "character_id": "baekseok",
+        "text": "공께서 큰일을 도모하시니, 먼저 저와 함께 고구려에 몰래 들어가 저들의 사정을 살핀 뒤에 일을 꾀함이 어떻습니까?"
+      },
+      {
+        "type": "chat",
+        "character_id": "kim_yusin",
+        "text": "옳은 말이다. 함께 떠나자."
+      },
+      {
+        "type": "narration",
+        "text": "두 사람이 길을 떠나 고개 위에서 쉬는데 두 여인이 뒤따라왔고, 골화천에서 묵을 때 또 한 여인이 나타났다."
+      },
+      {
+        "type": "chat",
+        "character_id": "three_guardians",
+        "text": "공이 가시는 곳을 저희가 압니다. 잠시 저 사람을 떼어 두고 숲으로 드시지요. 드릴 말씀이 있습니다."
+      },
+      {
+        "type": "narration",
+        "text": "숲에 들자 세 여인은 문득 신의 모습을 드러냈다."
+      },
+      {
+        "type": "chat",
+        "character_id": "three_guardians",
+        "text": "우리는 나림·혈례·골화, 나라를 지키는 세 신입니다. 지금 적국의 사람이 그대를 꾀어 데려가는데도 모르고 따라가기에, 말리려고 왔습니다."
+      },
+      {
+        "type": "chat",
+        "character_id": "kim_yusin",
+        "text": "백석이 첩자였단 말인가…. 하마터면 적의 손에 넘어갈 뻔했구나. 신들이시여, 이 은혜를 잊지 않겠나이다."
+      },
+      {
+        "type": "narration",
+        "text": "유신은 시치미를 떼고 백석과 함께 서라벌로 돌아와 그를 붙잡았다. 백석은 과연 고구려의 첩자였다."
+      },
+      {
+        "type": "narration",
+        "text": "훗날 삼국 통일을 이룬 김유신은 죽어 흥무대왕으로 받들어졌다. 송화산 자락의 묘가 왕릉처럼 장대한 까닭이다."
+      }
+    ]
+  },
+  {
+    "id": "story_daereungwon_01",
+    "title": "대릉원, 댓잎을 꽂은 군사",
+    "site_id": "site_daereungwon",
+    "character_ids": [
+      "king_michu",
+      "kim_yusin"
+    ],
+    "tags": [
+      "신라",
+      "설화",
+      "대릉원"
+    ],
+    "sources": [
+      "삼국유사 권1 기이편 미추왕 죽엽군(未鄒王 竹葉軍)"
+    ],
+    "messages": [
+      {
+        "type": "narration",
+        "text": "유례왕 때 이서국이 서라벌 금성으로 쳐들어왔다. 신라군이 막았으나 힘이 부쳤다."
+      },
+      {
+        "type": "narration",
+        "text": "그때 귀에 댓잎을 꽂은 군사들이 홀연 나타나 신라군과 함께 적을 무찔렀다. 적이 물러가자 그들은 온데간데없이 사라졌다."
+      },
+      {
+        "type": "narration",
+        "text": "다만 미추왕의 능 앞에 댓잎이 수북이 쌓여 있을 뿐이었다. 사람들은 선왕이 음덕으로 도우셨다 하며 그 능을 죽현릉(竹現陵)이라 불렀다."
+      },
+      {
+        "type": "chat",
+        "character_id": "king_michu",
+        "text": "죽어서도 이 나라의 임금이다. 서라벌이 짓밟히는 것을 어찌 보고만 있겠는가."
+      },
+      {
+        "type": "narration",
+        "text": "오랜 세월이 흘러 혜공왕 때, 김유신의 무덤에서 회오리바람이 일더니 갑옷 차림의 혼령이 군사들을 이끌고 죽현릉으로 들어갔다."
+      },
+      {
+        "type": "chat",
+        "character_id": "kim_yusin",
+        "text": "대왕이시여, 신은 평생 나라를 지켰고 죽어서도 그 마음이 변하지 않았습니다. 하온데 지난날 신의 자손이 죄 없이 죽임을 당했으니, 이제 멀리 떠나 다시는 나라를 위해 애쓰지 않으렵니다. 부디 허락하소서."
+      },
+      {
+        "type": "chat",
+        "character_id": "king_michu",
+        "text": "공과 내가 이 나라를 지키지 않으면 백성들은 어찌 되겠소. 아니 될 말이오. 공은 전처럼 힘써 주시오."
+      },
+      {
+        "type": "narration",
+        "text": "유신공이 세 번 청했으나 미추왕은 세 번 다 허락하지 않았고, 회오리바람은 되돌아갔다. 소식을 들은 혜공왕은 유신공의 능에 사신을 보내 사죄했다."
+      },
+      {
+        "type": "narration",
+        "text": "미추왕의 죽현릉은 대릉원 안에 있다. 천마총과 황남대총 사이, 고분 사이를 걷는 길이 곧 천년의 뜰이다."
+      }
+    ]
+  },
+  {
+    "id": "story_hwangnyongsa_01",
+    "title": "황룡사, 아홉 층에 담은 염원",
+    "site_id": "site_hwangnyongsa",
+    "character_ids": [
+      "jajang",
+      "queen_seondeok",
+      "abiji"
+    ],
+    "tags": [
+      "신라",
+      "호국",
+      "황룡사"
+    ],
+    "sources": [
+      "삼국유사 권3 탑상편 황룡사구층탑(皇龍寺九層塔)"
+    ],
+    "messages": [
+      {
+        "type": "narration",
+        "text": "당나라에서 공부하던 자장법사 앞에 신인(神人)이 나타나 말했다. \"그대 나라 황룡사의 호법룡은 나의 맏아들이오. 돌아가 그 절에 구층탑을 세우면 이웃 나라들이 항복하고 왕업이 길이 평안하리라.\""
+      },
+      {
+        "type": "chat",
+        "character_id": "jajang",
+        "text": "전하, 황룡사에 구층탑을 세우소서. 아홉 층은 곧 아홉 나라, 신라를 넘보는 모든 적을 누를 것이옵니다."
+      },
+      {
+        "type": "chat",
+        "character_id": "queen_seondeok",
+        "text": "좋다. 허나 이만한 탑을 세울 장인이 우리에게 없으니, 백제에서 아비지를 청해 오라."
+      },
+      {
+        "type": "narration",
+        "text": "백제의 장인 아비지가 나무와 돌을 다듬고, 이간 용춘이 소장 이백 명을 거느리고 일을 도왔다."
+      },
+      {
+        "type": "narration",
+        "text": "탑의 기둥을 세우던 날, 아비지는 본국 백제가 망하는 꿈을 꾸고 손을 멈췄다."
+      },
+      {
+        "type": "chat",
+        "character_id": "abiji",
+        "text": "이 탑이 서면 내 나라가 위태로워진단 말인가…. 내 어찌 손을 놀리겠는가."
+      },
+      {
+        "type": "narration",
+        "text": "그 순간 천지가 진동하며 어둠 속에서 노승과 장사가 나타나 기둥을 세우고 사라졌다."
+      },
+      {
+        "type": "chat",
+        "character_id": "abiji",
+        "text": "하늘의 뜻이로다. 이미 정해진 일이라면, 장인은 다만 좋은 탑을 세울 뿐."
+      },
+      {
+        "type": "narration",
+        "text": "645년 탑이 완성되었다. 아홉 층, 서라벌 어디에서나 보이는 하늘 기둥이었다."
+      },
+      {
+        "type": "narration",
+        "text": "탑은 고려 때 몽골의 불길에 사라졌지만, 드넓은 절터에 남은 주춧돌이 그 위용을 증언한다."
+      }
+    ]
+  },
+  {
+    "id": "story_seondeok_tomb_01",
+    "title": "선덕여왕릉, 도리천의 예언",
+    "site_id": "site_seondeok_tomb",
+    "character_ids": [
+      "queen_seondeok",
+      "minister_eulje"
+    ],
+    "tags": [
+      "신라",
+      "설화",
+      "선덕여왕"
+    ],
+    "sources": [
+      "삼국유사 권1 기이편 선덕왕 지기삼사(善德王 知幾三事)"
+    ],
+    "messages": [
+      {
+        "type": "narration",
+        "text": "병도 없던 어느 날, 선덕여왕이 신하들을 불러 말했다."
+      },
+      {
+        "type": "chat",
+        "character_id": "queen_seondeok",
+        "text": "짐은 아무 해 아무 달 아무 날에 죽을 것이다. 그때 나를 도리천에 장사 지내라."
+      },
+      {
+        "type": "chat",
+        "character_id": "minister_eulje",
+        "text": "도리천이라 하오시면 하늘 위의 세계가 아니옵니까. 어느 곳인지 신들은 알지 못하옵니다."
+      },
+      {
+        "type": "chat",
+        "character_id": "queen_seondeok",
+        "text": "낭산 남쪽이니라."
+      },
+      {
+        "type": "narration",
+        "text": "과연 왕이 말한 그날, 왕은 세상을 떠났다. 신하들은 유언대로 낭산 남쪽 양지바른 곳에 왕을 모셨다."
+      },
+      {
+        "type": "narration",
+        "text": "삼십여 년 뒤, 문무왕이 왕릉 아래에 사천왕사를 세웠다."
+      },
+      {
+        "type": "narration",
+        "text": "불경에 이르기를 사천왕천 위에 도리천이 있다 하였다. 여왕은 자신의 무덤 아래 사천왕사가 설 것까지 내다보았던 것이다."
+      },
+      {
+        "type": "chat",
+        "character_id": "minister_eulje",
+        "text": "여왕께서 미리 아신 세 가지 일 가운데서도, 이 일이 가장 신묘하도다."
+      },
+      {
+        "type": "narration",
+        "text": "낭산 소나무 숲 속, 여왕은 지금도 도리천에 잠들어 있다."
+      }
+    ]
+  },
+  {
+    "id": "story_wonseong_tomb_01",
+    "title": "원성왕릉, 복두를 벗은 꿈",
+    "site_id": "site_wonseong_tomb",
+    "character_ids": [
+      "king_wonseong",
+      "yeosam"
+    ],
+    "tags": [
+      "통일신라",
+      "설화",
+      "원성왕"
+    ],
+    "sources": [
+      "삼국유사 권2 기이편 원성대왕(元聖大王)"
+    ],
+    "messages": [
+      {
+        "type": "narration",
+        "text": "왕위에 오르기 전, 각간 김경신이 이상한 꿈을 꾸었다. 복두를 벗고 흰 갓을 쓰고, 열두 줄 가야금을 든 채 천관사 우물 속으로 들어가는 꿈이었다."
+      },
+      {
+        "type": "narration",
+        "text": "점쟁이가 말했다. \"복두를 벗음은 관직을 잃을 조짐이요, 가야금을 듦은 칼을 쓸 조짐이며, 우물에 들어감은 옥에 갇힐 조짐입니다.\""
+      },
+      {
+        "type": "chat",
+        "character_id": "king_wonseong",
+        "text": "관직을 잃고 옥에 갇힌다니…. 문을 닫아걸고 아무도 들이지 말라."
+      },
+      {
+        "type": "narration",
+        "text": "그때 아찬 여삼이 거듭 뵙기를 청했다."
+      },
+      {
+        "type": "chat",
+        "character_id": "yeosam",
+        "text": "공께서는 어찌 근심하십니까. 그 꿈은 더없는 길몽입니다."
+      },
+      {
+        "type": "chat",
+        "character_id": "king_wonseong",
+        "text": "길몽이라니, 어찌 그러한가."
+      },
+      {
+        "type": "chat",
+        "character_id": "yeosam",
+        "text": "복두를 벗음은 공보다 윗자리에 앉을 이가 없다는 뜻이요, 흰 갓은 면류관을 쓸 조짐이며, 열두 줄 가야금은 열두 대 손까지 왕위를 전할 조짐입니다. 천관사 우물로 들어감은 곧 궁궐로 들어갈 조짐이지요."
+      },
+      {
+        "type": "chat",
+        "character_id": "king_wonseong",
+        "text": "내 위에 김주원 공이 있는데, 어찌 왕위에 오른단 말인가."
+      },
+      {
+        "type": "narration",
+        "text": "얼마 뒤 선덕왕(宣德王)이 후사 없이 세상을 떠났다. 상재 김주원을 맞으려 했으나 큰비로 북천이 불어 그가 건너오지 못했고, 사람들은 하늘의 뜻이라 하며 김경신을 왕으로 세웠다."
+      },
+      {
+        "type": "narration",
+        "text": "그가 원성왕이다. 왕릉을 지키는 서역인 모습의 무인석은, 신라가 바다 건너 먼 나라와 오갔음을 말없이 보여준다."
+      }
+    ]
+  },
+  {
+    "id": "story_yeongji_01",
+    "title": "영지, 그림자 없는 탑",
+    "site_id": "site_yeongji",
+    "character_ids": [
+      "asadal",
+      "asanyeo"
+    ],
+    "tags": [
+      "통일신라",
+      "전설",
+      "무영탑"
+    ],
+    "sources": [
+      "영지 무영탑 전설(경주 구전 — '아사달·아사녀'라는 이름은 현진건 소설 '무영탑'(1939)에서 정착)"
+    ],
+    "messages": [
+      {
+        "type": "narration",
+        "text": "불국사 석가탑을 세우기 위해 먼 백제 땅의 석공 아사달이 서라벌로 왔다. 전설은 이렇게 전한다."
+      },
+      {
+        "type": "chat",
+        "character_id": "asadal",
+        "text": "탑이 서기 전에는 고향에 돌아갈 수 없소. 아사녀, 조금만 기다려 주오."
+      },
+      {
+        "type": "narration",
+        "text": "몇 해가 지나도 남편이 돌아오지 않자, 아사녀는 서라벌까지 찾아왔다. 그러나 탑이 완성되기 전에는 절 안에 들 수 없다 하였다."
+      },
+      {
+        "type": "chat",
+        "character_id": "asanyeo",
+        "text": "그러면 어디에서 기다려야 하나요."
+      },
+      {
+        "type": "narration",
+        "text": "절 사람이 일러 주었다. \"남쪽 연못가에서 기다리시오. 탑이 완성되면 그 그림자가 못에 비칠 것이오.\""
+      },
+      {
+        "type": "chat",
+        "character_id": "asanyeo",
+        "text": "오늘도 못에는 산 그림자뿐…. 탑은 어찌하여 그림자조차 보여 주지 않나요."
+      },
+      {
+        "type": "narration",
+        "text": "기다림에 지친 아사녀는 끝내 못에 몸을 던졌다. 탑을 완성한 아사달이 달려왔을 때는 이미 늦은 뒤였다."
+      },
+      {
+        "type": "chat",
+        "character_id": "asadal",
+        "text": "아사녀…! 내가 새긴 탑에는 그대 얼굴이 어려 있는데, 그대는 어디에 있소."
+      },
+      {
+        "type": "narration",
+        "text": "그림자를 비추지 않은 탑, 석가탑은 그래서 무영탑(無影塔)이라고도 불린다. 아사녀가 잠긴 못은 그림자 못, 영지(影池)가 되었다."
+      }
+    ]
+  },
+  {
+    "id": "story_jinpyeong_tomb_01",
+    "title": "진평왕릉, 하늘이 내린 옥대",
+    "site_id": "site_jinpyeong_tomb",
+    "character_ids": [
+      "king_jinpyeong",
+      "cheonsa"
+    ],
+    "tags": [
+      "신라",
+      "설화",
+      "진평왕"
+    ],
+    "sources": [
+      "삼국유사 권1 기이편 천사옥대(天賜玉帶)"
+    ],
+    "messages": [
+      {
+        "type": "narration",
+        "text": "579년, 진평왕이 즉위하던 해. 하늘의 사자가 궁전 뜰에 내려왔다."
+      },
+      {
+        "type": "chat",
+        "character_id": "cheonsa",
+        "text": "상제께서 명하시어 이 옥대를 전하나이다. 하늘의 뜻을 받들어 나라를 다스리소서."
+      },
+      {
+        "type": "chat",
+        "character_id": "king_jinpyeong",
+        "text": "하늘이 이 몸에 내리신 것이라니, 무릎 꿇어 받겠나이다."
+      },
+      {
+        "type": "narration",
+        "text": "왕은 하늘과 조상께 큰 제사를 올릴 때마다 반드시 이 옥대를 둘렀다."
+      },
+      {
+        "type": "narration",
+        "text": "길이가 열 위(圍), 마디가 예순둘. 천사옥대(天賜玉帶)는 황룡사 장륙존상, 황룡사 구층탑과 함께 신라의 세 가지 보물로 꼽혔다."
+      },
+      {
+        "type": "narration",
+        "text": "훗날 신라가 나라를 바칠 때, 이 옥대도 고려 태조에게 전해졌다고 한다."
+      },
+      {
+        "type": "narration",
+        "text": "하늘의 옥대를 둘렀던 임금은 보문 들판의 큰 능에 잠들어 있다."
       }
     ]
   }

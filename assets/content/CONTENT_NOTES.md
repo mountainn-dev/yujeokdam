@@ -15,8 +15,37 @@
 | site_cheomseongdae | 첨성대 | 126207 | ✅ 검증됨 |
 | site_donggung_wolji | 동궁과 월지 | 128526 | ✅ 검증됨 |
 | site_poseokjeong | 포석정 | 126208 | ✅ 검증됨 |
+| site_seokguram | 석굴암 | 126216 | ✅ 검증됨 (유네스코 세계유산) |
+| site_gameunsa | 감은사지 | 128637 | ✅ 검증됨 |
+| site_igyeondae | 이견대 | 128651 | ✅ 검증됨 |
+| site_munmu_tomb | 문무대왕릉 | 126218 | ✅ 검증됨 |
+| site_gyerim | 계림 | 128116 | ✅ 검증됨 |
+| site_wolseong | 월성 | 128117 | ✅ 검증됨 |
+| site_talhae_tomb | 탈해왕릉 | 129523 | ✅ 검증됨 |
+| site_bunhwangsa | 분황사 | 317503 | ✅ 검증됨 |
+| site_oreung | 오릉 | 126213 | ✅ 검증됨 |
+| site_najeong | 나정 | 128635 | ✅ 검증됨 |
+| site_muyeol_tomb | 태종무열왕릉 | 126210 | ✅ 검증됨 |
+| site_kim_yusin_tomb | 김유신묘 | 126203 | ✅ 검증됨 |
+| site_daereungwon | 대릉원 | 126214 | ✅ 검증됨 (TourAPI 표제는 "천마총(대릉원)") |
+| site_hwangnyongsa | 황룡사지 | 127985 | ✅ 검증됨 |
+| site_seondeok_tomb | 선덕여왕릉 | 126211 | ✅ 검증됨 |
+| site_wonseong_tomb | 원성왕릉(괘릉) | 128638 | ✅ 검증됨 |
+| site_yeongji | 영지 | 3090456 | ✅ 검증됨 |
+| site_jinpyeong_tomb | 진평왕릉 | 2756726 | ✅ 검증됨 |
 
 불국사 `detailIntro2` 의 `heritage1=1` 확인 — 무대 화면 유네스코 배지가 켜진다.
+
+2026-08-31 확장분(석굴암~진평왕릉 18곳)은 `searchKeyword2` + `detailCommon2` 실호출로
+검증했다(전부 `contentTypeId=12`, 좌표·대표 이미지 존재 확인). 확장분 특이사항:
+
+- **대릉원(126214)** — TourAPI 항목명이 "천마총(대릉원)"이다. 이야기(미추왕 죽엽군)의
+  무대인 미추왕릉(죽현릉)은 대릉원 경내에 있으므로 같은 항목에 연결했다.
+- **영지(3090456)** — 아사달·아사녀 이야기는 삼국유사에 없는 **근대에 정착된 전설**이다.
+  인물명은 현진건 소설 '무영탑'(1939)에서 굳어진 것으로, `sources` 와 인물 설명에
+  명시해 두었다. 감수 시 표기 수위를 확인할 것.
+- **문무왕 관계 보정** — 기존 `king_munmu` 의 "을제 신하" 관계는 연대가 맞지 않아
+  (을제는 선덕여왕대 재상) 김춘추·문희·신문왕 가족 관계로 교체했다.
 
 ## 감수 체크리스트 (사람)
 

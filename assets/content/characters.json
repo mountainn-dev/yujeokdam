@@ -7,8 +7,14 @@
     "one_liner": "신라 제21대 왕",
     "description": "신라 제21대 임금. 정월 보름, 까마귀가 전한 경고를 따라 목숨을 건졌다는 사금갑(射琴匣) 설화의 주인공이다.",
     "relations": [
-      { "target_id": "court_lady", "label": "왕비" },
-      { "target_id": "monk", "label": "내통 상대" }
+      {
+        "target_id": "court_lady",
+        "label": "왕비"
+      },
+      {
+        "target_id": "monk",
+        "label": "내통 상대"
+      }
     ]
   },
   {
@@ -19,7 +25,10 @@
     "one_liner": "소지왕의 비",
     "description": "거문고 갑 속에 숨은 승려와 내통하다 까마귀가 전한 편지로 발각되었다고 전한다.",
     "relations": [
-      { "target_id": "soji_king", "label": "남편" }
+      {
+        "target_id": "soji_king",
+        "label": "남편"
+      }
     ]
   },
   {
@@ -30,7 +39,10 @@
     "one_liner": "궁중에 숨어든 승려",
     "description": "거문고 갑 속에 숨어 있다 화살에 맞은 인물. 사금갑 설화의 발단이 된다.",
     "relations": [
-      { "target_id": "soji_king", "label": "적대" }
+      {
+        "target_id": "soji_king",
+        "label": "적대"
+      }
     ]
   },
   {
@@ -41,8 +53,14 @@
     "one_liner": "불국사·석불사를 세운 재상",
     "description": "통일신라의 재상. 현생의 부모를 위해 불국사를, 전생의 부모를 위해 석불사(석굴암)를 지었다는 효심 설화로 전한다. 삼국유사 '대성효이세부모(大城孝二世父母)'.",
     "relations": [
-      { "target_id": "gyeongjo", "label": "전생의 어머니" },
-      { "target_id": "kim_munryang", "label": "현생의 아버지" }
+      {
+        "target_id": "gyeongjo",
+        "label": "전생의 어머니"
+      },
+      {
+        "target_id": "kim_munryang",
+        "label": "현생의 아버지"
+      }
     ]
   },
   {
@@ -53,7 +71,10 @@
     "one_liner": "대성의 가난한 전생 어머니",
     "description": "모량리의 가난한 여인. 품팔이로 얻은 밭을 흥륜사 보시에 바친 아이 대성의 전생 어머니로 전한다.",
     "relations": [
-      { "target_id": "kim_daeseong", "label": "전생의 아들" }
+      {
+        "target_id": "kim_daeseong",
+        "label": "전생의 아들"
+      }
     ]
   },
   {
@@ -64,7 +85,10 @@
     "one_liner": "재상, 대성의 현생 아버지",
     "description": "하늘의 외침 뒤 대성이 다시 태어난 집의 재상. 손에 '대성(大城)'이라 새긴 금간자를 쥔 아이를 얻었다고 전한다.",
     "relations": [
-      { "target_id": "kim_daeseong", "label": "현생의 아들" }
+      {
+        "target_id": "kim_daeseong",
+        "label": "현생의 아들"
+      }
     ]
   },
   {
@@ -75,7 +99,18 @@
     "one_liner": "신라 제27대 왕, 첫 여왕",
     "description": "신라 최초의 여왕. 향기 없는 모란, 옥문지의 개구리 등으로 앞일을 내다본 '지기삼사(知幾三事)'의 일화와 동양 最古의 천문대 첨성대 건립으로 전한다.",
     "relations": [
-      { "target_id": "minister_eulje", "label": "신하" }
+      {
+        "target_id": "minister_eulje",
+        "label": "신하"
+      },
+      {
+        "target_id": "king_jinpyeong",
+        "label": "아버지"
+      },
+      {
+        "target_id": "jajang",
+        "label": "구층탑을 청한 승려"
+      }
     ]
   },
   {
@@ -86,7 +121,10 @@
     "one_liner": "선덕여왕대의 재상",
     "description": "선덕여왕을 보좌한 재상으로 전한다. 여왕의 천문 관측과 백성을 위한 정사를 함께 도모하는 인물로 그렸다.",
     "relations": [
-      { "target_id": "queen_seondeok", "label": "임금" }
+      {
+        "target_id": "queen_seondeok",
+        "label": "임금"
+      }
     ]
   },
   {
@@ -97,7 +135,18 @@
     "one_liner": "삼국을 통일한 신라 제30대 왕",
     "description": "삼국 통일을 완성한 임금. 동궁에 못(월지)을 파고 화초와 진금이수를 길렀으며, 죽어서도 용이 되어 나라를 지키겠다며 바다에 묻혔다고 전한다.",
     "relations": [
-      { "target_id": "minister_eulje", "label": "신하" }
+      {
+        "target_id": "kim_chunchu",
+        "label": "아버지"
+      },
+      {
+        "target_id": "munhui",
+        "label": "어머니"
+      },
+      {
+        "target_id": "king_sinmun",
+        "label": "아들"
+      }
     ]
   },
   {
@@ -108,7 +157,10 @@
     "one_liner": "신라 제55대 왕",
     "description": "후삼국의 격랑 속 신라의 임금. 포석정에서 잔치를 벌이던 중 후백제 견훤의 습격을 받아 비극적 최후를 맞았다고 전한다.",
     "relations": [
-      { "target_id": "gyeon_hwon", "label": "적대" }
+      {
+        "target_id": "gyeon_hwon",
+        "label": "적대"
+      }
     ]
   },
   {
@@ -119,7 +171,418 @@
     "one_liner": "후백제를 세운 왕",
     "description": "후백제의 건국자. 927년 경주를 급습해 신라 경애왕을 죽음에 이르게 했다고 전한다.",
     "relations": [
-      { "target_id": "king_gyeongae", "label": "적대" }
+      {
+        "target_id": "king_gyeongae",
+        "label": "적대"
+      }
+    ]
+  },
+  {
+    "id": "king_sinmun",
+    "name": "신문왕",
+    "portrait": "assets/portraits/king_sinmun.png",
+    "lifespan": "?~692",
+    "one_liner": "신라 제31대 왕",
+    "description": "문무왕의 아들. 아버지를 위해 감은사를 완성하고, 동해의 용에게서 만파식적을 얻었다고 전한다.",
+    "relations": [
+      {
+        "target_id": "king_munmu",
+        "label": "아버지"
+      }
+    ]
+  },
+  {
+    "id": "jiui_monk",
+    "name": "지의법사",
+    "portrait": "assets/portraits/jiui_monk.png",
+    "lifespan": "미상",
+    "one_liner": "문무왕이 속마음을 털어놓은 승려",
+    "description": "문무왕이 '죽은 뒤 나라를 지키는 큰 용이 되겠다'는 서원을 밝힌 상대로 삼국유사에 전한다.",
+    "relations": [
+      {
+        "target_id": "king_munmu",
+        "label": "임금"
+      }
+    ]
+  },
+  {
+    "id": "sea_dragon",
+    "name": "동해의 용",
+    "portrait": "assets/portraits/sea_dragon.png",
+    "lifespan": "전설",
+    "one_liner": "만파식적의 뜻을 전한 용",
+    "description": "감은사 앞바다에 떠 온 산에 나타나, 문무왕과 김유신 두 성인이 내리는 보물 만파식적의 이치를 신문왕에게 일러 주었다고 전한다.",
+    "relations": [
+      {
+        "target_id": "king_sinmun",
+        "label": "보물을 전한 임금"
+      }
+    ]
+  },
+  {
+    "id": "king_talhae",
+    "name": "탈해왕",
+    "portrait": "assets/portraits/king_talhae.png",
+    "lifespan": "?~80",
+    "one_liner": "신라 제4대 왕",
+    "description": "용성국에서 알로 태어나 궤짝에 실려 바다를 건너온 임금. 숫돌과 숯의 꾀로 월성 터를 얻고, 시림에서 김알지를 거두었다고 전한다. 경주 석씨의 시조.",
+    "relations": [
+      {
+        "target_id": "hogong",
+        "label": "집터를 두고 다툰 상대"
+      },
+      {
+        "target_id": "ajinuiseon",
+        "label": "길러준 어멈"
+      }
+    ]
+  },
+  {
+    "id": "hogong",
+    "name": "호공",
+    "portrait": "assets/portraits/hogong.png",
+    "lifespan": "미상",
+    "one_liner": "표주박을 차고 바다를 건너온 재상",
+    "description": "허리에 표주박을 차고 바다를 건너왔다 하여 호공(瓠公)이라 불린 신라 초기의 재상. 시림의 금궤를 처음 발견해 김알지 설화의 문을 열었다.",
+    "relations": [
+      {
+        "target_id": "king_talhae",
+        "label": "임금"
+      }
+    ]
+  },
+  {
+    "id": "ajinuiseon",
+    "name": "아진의선",
+    "portrait": "assets/portraits/ajinuiseon.png",
+    "lifespan": "미상",
+    "one_liner": "아진포의 고기잡이 할멈",
+    "description": "까치가 우는 배를 끌어당겨 궤짝 속의 탈해를 거두어 기른 할멈. 혁거세왕의 고기잡이 어멈이었다고 전한다.",
+    "relations": [
+      {
+        "target_id": "king_talhae",
+        "label": "거둔 아이"
+      }
+    ]
+  },
+  {
+    "id": "huimyeong",
+    "name": "희명",
+    "portrait": "assets/portraits/huimyeong.png",
+    "lifespan": "미상",
+    "one_liner": "경덕왕 때 한기리의 여인",
+    "description": "다섯 살에 눈이 먼 아이를 안고 분황사 천수대비 벽화 앞에 나아가, 노래를 지어 빌게 하여 아이의 눈을 뜨게 했다고 전한다.",
+    "relations": [
+      {
+        "target_id": "huimyeong_child",
+        "label": "아이"
+      }
+    ]
+  },
+  {
+    "id": "huimyeong_child",
+    "name": "희명의 아이",
+    "portrait": "assets/portraits/huimyeong_child.png",
+    "lifespan": "미상",
+    "one_liner": "노래로 눈을 뜬 아이",
+    "description": "태어난 지 다섯 해 만에 눈이 멀었으나, 분황사 천수관음 앞에서 향가 '도천수관음가'를 불러 눈을 떴다고 전한다.",
+    "relations": [
+      {
+        "target_id": "huimyeong",
+        "label": "어머니"
+      }
+    ]
+  },
+  {
+    "id": "hyeokgeose",
+    "name": "박혁거세",
+    "portrait": "assets/portraits/hyeokgeose.png",
+    "lifespan": "기원전 69~기원후 4",
+    "one_liner": "신라를 세운 첫 임금",
+    "description": "나정 곁의 자줏빛 알에서 태어나 열세 살에 임금이 되었다. 61년간 나라를 다스리고 하늘로 올라갔다고 전한다.",
+    "relations": [
+      {
+        "target_id": "aryeong",
+        "label": "왕비"
+      },
+      {
+        "target_id": "sobeoldori",
+        "label": "받들어 준 촌장"
+      }
+    ]
+  },
+  {
+    "id": "aryeong",
+    "name": "알영",
+    "portrait": "assets/portraits/aryeong.png",
+    "lifespan": "미상",
+    "one_liner": "혁거세왕의 비",
+    "description": "알영정 우물가에 나타난 계룡의 옆구리에서 태어났다고 전한다. 혁거세와 함께 '두 성인(二聖)'으로 받들어졌다.",
+    "relations": [
+      {
+        "target_id": "hyeokgeose",
+        "label": "남편"
+      }
+    ]
+  },
+  {
+    "id": "sobeoldori",
+    "name": "소벌도리",
+    "portrait": "assets/portraits/sobeoldori.png",
+    "lifespan": "미상",
+    "one_liner": "여섯 촌장 중 고허촌의 촌장",
+    "description": "임금 없는 여섯 마을을 이끌던 촌장의 한 사람. 나정 곁의 알에서 난 혁거세를 거두어 길렀다고 전한다.",
+    "relations": [
+      {
+        "target_id": "hyeokgeose",
+        "label": "받들어 기른 임금"
+      }
+    ]
+  },
+  {
+    "id": "kim_chunchu",
+    "name": "김춘추",
+    "portrait": "assets/portraits/kim_chunchu.png",
+    "lifespan": "603~661",
+    "one_liner": "삼국 통일의 문을 연 신라 제29대 왕",
+    "description": "진골 출신으로 처음 왕위에 오른 태종무열왕. 당과의 외교를 이끌고 백제를 무너뜨려 통일의 기틀을 놓았다. 문희와의 혼인 설화가 삼국유사에 전한다.",
+    "relations": [
+      {
+        "target_id": "munhui",
+        "label": "아내"
+      },
+      {
+        "target_id": "kim_yusin",
+        "label": "처남"
+      },
+      {
+        "target_id": "king_munmu",
+        "label": "아들"
+      }
+    ]
+  },
+  {
+    "id": "kim_yusin",
+    "name": "김유신",
+    "portrait": "assets/portraits/kim_yusin.png",
+    "lifespan": "595~673",
+    "one_liner": "삼국 통일의 주역, 흥무대왕",
+    "description": "가야 왕손 출신의 신라 명장. 삼국 통일을 이끌어 태대각간에 오르고, 죽어서 흥무대왕으로 추봉되었다. 죽은 뒤에도 나라를 지키는 혼령으로 삼국유사에 전한다.",
+    "relations": [
+      {
+        "target_id": "kim_chunchu",
+        "label": "매제"
+      },
+      {
+        "target_id": "munhui",
+        "label": "누이동생"
+      },
+      {
+        "target_id": "baekseok",
+        "label": "적대"
+      }
+    ]
+  },
+  {
+    "id": "munhui",
+    "name": "문희",
+    "portrait": "assets/portraits/munhui.png",
+    "lifespan": "미상",
+    "one_liner": "언니의 꿈을 사서 왕후가 된 여인",
+    "description": "김유신의 누이. 언니 보희의 꿈을 비단 치마를 주고 사고, 김춘추와 혼인해 문명왕후가 되었으며 문무왕을 낳았다.",
+    "relations": [
+      {
+        "target_id": "kim_chunchu",
+        "label": "남편"
+      },
+      {
+        "target_id": "kim_yusin",
+        "label": "오라버니"
+      },
+      {
+        "target_id": "bohui",
+        "label": "언니"
+      },
+      {
+        "target_id": "king_munmu",
+        "label": "아들"
+      }
+    ]
+  },
+  {
+    "id": "bohui",
+    "name": "보희",
+    "portrait": "assets/portraits/bohui.png",
+    "lifespan": "미상",
+    "one_liner": "서악의 꿈을 꾼 언니",
+    "description": "서악에 올라 서라벌을 잠기게 하는 꿈을 꾸고 동생 문희에게 판 김유신의 누이. 그 꿈은 왕후가 될 조짐이었다고 전한다.",
+    "relations": [
+      {
+        "target_id": "munhui",
+        "label": "동생"
+      },
+      {
+        "target_id": "kim_yusin",
+        "label": "오라버니"
+      }
+    ]
+  },
+  {
+    "id": "baekseok",
+    "name": "백석",
+    "portrait": "assets/portraits/baekseok.png",
+    "lifespan": "미상",
+    "one_liner": "낭도로 숨어든 고구려 첩자",
+    "description": "김유신의 낭도로 들어와 그를 고구려로 꾀어내려 했으나, 세 호국신의 경고로 정체가 드러나 처형되었다고 전한다.",
+    "relations": [
+      {
+        "target_id": "kim_yusin",
+        "label": "적대"
+      }
+    ]
+  },
+  {
+    "id": "three_guardians",
+    "name": "세 호국신",
+    "portrait": "assets/portraits/three_guardians.png",
+    "lifespan": "전설",
+    "one_liner": "나림·혈례·골화의 세 여신",
+    "description": "나라를 지키는 세 산의 여신. 여인의 모습으로 나타나 김유신에게 백석의 정체를 알려 주었다고 전한다.",
+    "relations": [
+      {
+        "target_id": "kim_yusin",
+        "label": "지켜준 화랑"
+      }
+    ]
+  },
+  {
+    "id": "king_michu",
+    "name": "미추왕",
+    "portrait": "assets/portraits/king_michu.png",
+    "lifespan": "?~284",
+    "one_liner": "신라 제13대 왕, 김씨 첫 임금",
+    "description": "김알지의 후손으로 김씨 가운데 처음 왕위에 오른 임금. 죽은 뒤에도 댓잎 군사를 보내 나라를 지켰다는 죽엽군 설화가 전한다.",
+    "relations": [
+      {
+        "target_id": "kim_yusin",
+        "label": "찾아온 혼령"
+      }
+    ]
+  },
+  {
+    "id": "jajang",
+    "name": "자장",
+    "portrait": "assets/portraits/jajang.png",
+    "lifespan": "미상",
+    "one_liner": "황룡사 구층탑을 청한 승려",
+    "description": "당나라 유학 중 신인의 계시를 받고 돌아와 선덕여왕에게 황룡사 구층탑 건립을 청한 신라의 고승.",
+    "relations": [
+      {
+        "target_id": "queen_seondeok",
+        "label": "임금"
+      }
+    ]
+  },
+  {
+    "id": "abiji",
+    "name": "아비지",
+    "portrait": "assets/portraits/abiji.png",
+    "lifespan": "미상",
+    "one_liner": "구층탑을 세운 백제의 장인",
+    "description": "황룡사 구층탑을 세우기 위해 초빙된 백제의 대목수. 조국이 망하는 꿈을 꾸고 갈등했으나 끝내 탑을 완성했다고 전한다.",
+    "relations": [
+      {
+        "target_id": "jajang",
+        "label": "함께 탑을 세운 승려"
+      }
+    ]
+  },
+  {
+    "id": "king_wonseong",
+    "name": "원성왕",
+    "portrait": "assets/portraits/king_wonseong.png",
+    "lifespan": "?~798",
+    "one_liner": "신라 제38대 왕",
+    "description": "각간 김경신 시절, 복두를 벗고 우물로 들어가는 꿈을 길몽으로 풀이받고 왕위에 올랐다. 괘릉이라고도 불리는 능은 서역인 모습의 무인석으로 유명하다.",
+    "relations": [
+      {
+        "target_id": "yeosam",
+        "label": "꿈을 풀어준 신하"
+      }
+    ]
+  },
+  {
+    "id": "yeosam",
+    "name": "여삼",
+    "portrait": "assets/portraits/yeosam.png",
+    "lifespan": "미상",
+    "one_liner": "흉몽을 길몽으로 풀어낸 아찬",
+    "description": "김경신의 꿈을 왕위에 오를 조짐으로 풀이한 인물. 그의 해몽대로 김경신은 원성왕이 되었다.",
+    "relations": [
+      {
+        "target_id": "king_wonseong",
+        "label": "임금"
+      }
+    ]
+  },
+  {
+    "id": "asadal",
+    "name": "아사달",
+    "portrait": "assets/portraits/asadal.png",
+    "lifespan": "전설",
+    "one_liner": "석가탑을 새긴 석공",
+    "description": "불국사 석가탑을 세웠다는 전설 속 석공. '아사달'이라는 이름은 현진건의 소설 '무영탑'(1939)에서 정착되었다.",
+    "relations": [
+      {
+        "target_id": "asanyeo",
+        "label": "아내"
+      }
+    ]
+  },
+  {
+    "id": "asanyeo",
+    "name": "아사녀",
+    "portrait": "assets/portraits/asanyeo.png",
+    "lifespan": "전설",
+    "one_liner": "영지에서 탑을 기다린 여인",
+    "description": "탑이 완성되면 그림자가 못에 비치리라는 말을 믿고 기다리다, 끝내 영지에 몸을 던졌다는 전설 속 여인.",
+    "relations": [
+      {
+        "target_id": "asadal",
+        "label": "남편"
+      }
+    ]
+  },
+  {
+    "id": "king_jinpyeong",
+    "name": "진평왕",
+    "portrait": "assets/portraits/king_jinpyeong.png",
+    "lifespan": "?~632",
+    "one_liner": "신라 제26대 왕",
+    "description": "즉위하던 해 하늘에서 내려온 천사에게 옥대를 받았다고 전한다. 53년간 재위했으며 선덕여왕의 아버지다.",
+    "relations": [
+      {
+        "target_id": "cheonsa",
+        "label": "옥대를 전한 사자"
+      },
+      {
+        "target_id": "queen_seondeok",
+        "label": "딸"
+      }
+    ]
+  },
+  {
+    "id": "cheonsa",
+    "name": "천사",
+    "portrait": "assets/portraits/cheonsa.png",
+    "lifespan": "전설",
+    "one_liner": "상제의 옥대를 전한 사자",
+    "description": "진평왕 즉위 원년, 궁전 뜰에 내려와 상제의 명으로 옥대를 전했다는 하늘의 사자.",
+    "relations": [
+      {
+        "target_id": "king_jinpyeong",
+        "label": "옥대를 받은 임금"
+      }
     ]
   }
 ]
