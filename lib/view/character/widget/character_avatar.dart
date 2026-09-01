@@ -81,6 +81,8 @@ class CharacterAvatar extends StatelessWidget {
     'asanyeo': '💧', // 아사녀 — 못가에서 탑 그림자를 기다림
     'king_jinpyeong': '👑', // 진평왕
     'cheonsa': '😇', // 천사 — 옥대를 전한 하늘의 사자
+    'bear_spirit': '🐻', // 곰 귀신 — 대성의 꿈에 나타남
+    'uisang': '🧘', // 의상 — 화엄종을 연 고승
   };
 
   /// 인물 id 의 역할 이모지. 없으면 null.
