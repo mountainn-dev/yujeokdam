@@ -11,7 +11,9 @@ platform :android do
       track: "production",
       aab: AAB_PATH,
       validate_only: true,
-      skip_upload_metadata: true,
+      # metadata/ 에는 changelogs 만 둔다. 스토어 등록정보(제목·설명)는 파일이 없어
+      # 건드리지 않고, 버전 코드에 맞는 릴리스 노트만 올라간다.
+      skip_upload_metadata: false,
       skip_upload_images: true,
       skip_upload_screenshots: true,
     )
@@ -24,7 +26,7 @@ platform :android do
       track: "production",
       release_status: "completed",
       aab: AAB_PATH,
-      skip_upload_metadata: true,
+      skip_upload_metadata: false,
       skip_upload_images: true,
       skip_upload_screenshots: true,
     )
