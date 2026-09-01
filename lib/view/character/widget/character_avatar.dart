@@ -77,8 +77,8 @@ class CharacterAvatar extends StatelessWidget {
     'abiji': '🔨', // 아비지 — 백제의 대목수
     'king_wonseong': '👑', // 원성왕
     'yeosam': '🔮', // 여삼 — 해몽
-    'asadal': '🪨', // 아사달 — 석공
-    'asanyeo': '💧', // 아사녀 — 영지에 잠김
+    'stone_mason': '🪨', // 석가탑을 세운 당나라 장인
+    'asanyeo': '💧', // 아사녀 — 못가에서 탑 그림자를 기다림
     'king_jinpyeong': '👑', // 진평왕
     'cheonsa': '😇', // 천사 — 옥대를 전한 하늘의 사자
   };

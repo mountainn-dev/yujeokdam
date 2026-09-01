@@ -526,16 +526,16 @@
     ]
   },
   {
-    "id": "asadal",
-    "name": "아사달",
-    "portrait": "assets/portraits/asadal.png",
-    "lifespan": "전설",
-    "one_liner": "석가탑을 새긴 석공",
-    "description": "불국사 석가탑을 세웠다는 전설 속 석공. '아사달'이라는 이름은 현진건의 소설 '무영탑'(1939)에서 정착되었다.",
+    "id": "stone_mason",
+    "name": "석공",
+    "portrait": "assets/portraits/stone_mason.png",
+    "lifespan": "미상",
+    "one_liner": "석가탑을 세운 당나라 장인",
+    "description": "1740년 「불국사고금창기」에 이름 없이 '장공(匠工)'으로만 전하는, 당나라에서 온 석가탑의 장인. 오늘날 널리 쓰이는 '아사달'이라는 이름은 현진건의 소설 「무영탑」(1938~39)에서 지어진 것이다.",
     "relations": [
       {
         "target_id": "asanyeo",
-        "label": "아내"
+        "label": "누이동생"
       }
     ]
   },
@@ -543,13 +543,13 @@
     "id": "asanyeo",
     "name": "아사녀",
     "portrait": "assets/portraits/asanyeo.png",
-    "lifespan": "전설",
-    "one_liner": "영지에서 탑을 기다린 여인",
-    "description": "탑이 완성되면 그림자가 못에 비치리라는 말을 믿고 기다리다, 끝내 영지에 몸을 던졌다는 전설 속 여인.",
+    "lifespan": "미상",
+    "one_liner": "탑 그림자를 기다린 석공의 누이",
+    "description": "1740년 「불국사고금창기」에 阿斯女라는 이름으로 전하는 석공의 누이동생. 오라비를 찾아왔으나 만나지 못하고, 서쪽 십 리 못에서 탑 그림자가 비치기를 기다렸다고 한다. 아내로 바뀐 것은 1927년 이후의 전승이다.",
     "relations": [
       {
-        "target_id": "asadal",
-        "label": "남편"
+        "target_id": "stone_mason",
+        "label": "오라버니"
       }
     ]
   },
