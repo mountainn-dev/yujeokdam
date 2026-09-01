@@ -28,5 +28,113 @@
     "name": "포석정",
     "tour_api_content_id": "126208",
     "tour_api_content_type_id": "12"
+  },
+  {
+    "id": "site_seokguram",
+    "name": "석굴암",
+    "tour_api_content_id": "126216",
+    "tour_api_content_type_id": "12"
+  },
+  {
+    "id": "site_gameunsa",
+    "name": "감은사지",
+    "tour_api_content_id": "128637",
+    "tour_api_content_type_id": "12"
+  },
+  {
+    "id": "site_igyeondae",
+    "name": "이견대",
+    "tour_api_content_id": "128651",
+    "tour_api_content_type_id": "12"
+  },
+  {
+    "id": "site_munmu_tomb",
+    "name": "문무대왕릉",
+    "tour_api_content_id": "126218",
+    "tour_api_content_type_id": "12"
+  },
+  {
+    "id": "site_gyerim",
+    "name": "계림",
+    "tour_api_content_id": "128116",
+    "tour_api_content_type_id": "12"
+  },
+  {
+    "id": "site_wolseong",
+    "name": "월성",
+    "tour_api_content_id": "128117",
+    "tour_api_content_type_id": "12"
+  },
+  {
+    "id": "site_talhae_tomb",
+    "name": "탈해왕릉",
+    "tour_api_content_id": "129523",
+    "tour_api_content_type_id": "12"
+  },
+  {
+    "id": "site_bunhwangsa",
+    "name": "분황사",
+    "tour_api_content_id": "317503",
+    "tour_api_content_type_id": "12"
+  },
+  {
+    "id": "site_oreung",
+    "name": "오릉",
+    "tour_api_content_id": "126213",
+    "tour_api_content_type_id": "12"
+  },
+  {
+    "id": "site_najeong",
+    "name": "나정",
+    "tour_api_content_id": "128635",
+    "tour_api_content_type_id": "12"
+  },
+  {
+    "id": "site_muyeol_tomb",
+    "name": "태종무열왕릉",
+    "tour_api_content_id": "126210",
+    "tour_api_content_type_id": "12"
+  },
+  {
+    "id": "site_kim_yusin_tomb",
+    "name": "김유신묘",
+    "tour_api_content_id": "126203",
+    "tour_api_content_type_id": "12"
+  },
+  {
+    "id": "site_daereungwon",
+    "name": "대릉원",
+    "tour_api_content_id": "126214",
+    "tour_api_content_type_id": "12"
+  },
+  {
+    "id": "site_hwangnyongsa",
+    "name": "황룡사지",
+    "tour_api_content_id": "127985",
+    "tour_api_content_type_id": "12"
+  },
+  {
+    "id": "site_seondeok_tomb",
+    "name": "선덕여왕릉",
+    "tour_api_content_id": "126211",
+    "tour_api_content_type_id": "12"
+  },
+  {
+    "id": "site_wonseong_tomb",
+    "name": "원성왕릉(괘릉)",
+    "tour_api_content_id": "128638",
+    "tour_api_content_type_id": "12"
+  },
+  {
+    "id": "site_yeongji",
+    "name": "영지",
+    "tour_api_content_id": "3090456",
+    "tour_api_content_type_id": "12"
+  },
+  {
+    "id": "site_jinpyeong_tomb",
+    "name": "진평왕릉",
+    "tour_api_content_id": "2756726",
+    "tour_api_content_type_id": "12"
   }
 ]
