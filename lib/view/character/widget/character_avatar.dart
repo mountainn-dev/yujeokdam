@@ -55,6 +55,34 @@ class CharacterAvatar extends StatelessWidget {
     'king_munmu': '🐉', // 문무왕 — 호국룡 설화
     'king_gyeongae': '👑', // 경애왕
     'gyeon_hwon': '⚔️', // 견훤 — 후백제 무장
+    'king_sinmun': '👑', // 신문왕
+    'jiui_monk': '🙏', // 지의법사
+    'sea_dragon': '🐉', // 동해의 용 — 만파식적을 전함
+    'king_talhae': '👑', // 탈해왕
+    'hogong': '🧑', // 호공 — 재상
+    'ajinuiseon': '👵', // 아진의선 — 고기잡이 할멈
+    'huimyeong': '👩', // 희명 — 아이의 어머니
+    'huimyeong_child': '🧒', // 희명의 아이
+    'hyeokgeose': '👑', // 박혁거세
+    'aryeong': '🎎', // 알영 — 혁거세왕의 비
+    'sobeoldori': '👴', // 소벌도리 — 고허촌 촌장
+    'kim_chunchu': '👑', // 김춘추 — 태종무열왕
+    'kim_yusin': '🗡️', // 김유신 — 삼국 통일의 명장
+    'munhui': '👰', // 문희 — 문명왕후
+    'bohui': '💭', // 보희 — 꿈을 판 언니
+    'baekseok': '🕵️', // 백석 — 고구려 첩자
+    'three_guardians': '🧚', // 세 호국신 — 나림·혈례·골화
+    'king_michu': '🎋', // 미추왕 — 댓잎 군사
+    'jajang': '📿', // 자장 — 구층탑을 청한 승려
+    'abiji': '🔨', // 아비지 — 백제의 대목수
+    'king_wonseong': '👑', // 원성왕
+    'yeosam': '🔮', // 여삼 — 해몽
+    'stone_mason': '🪨', // 석가탑을 세운 당나라 장인
+    'asanyeo': '💧', // 아사녀 — 못가에서 탑 그림자를 기다림
+    'king_jinpyeong': '👑', // 진평왕
+    'cheonsa': '😇', // 천사 — 옥대를 전한 하늘의 사자
+    'bear_spirit': '🐻', // 곰 귀신 — 대성의 꿈에 나타남
+    'uisang': '🧘', // 의상 — 화엄종을 연 고승
   };
 
   /// 인물 id 의 역할 이모지. 없으면 null.

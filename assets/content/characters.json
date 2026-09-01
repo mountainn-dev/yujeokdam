@@ -9,25 +9,25 @@
     "relations": [
       {
         "target_id": "court_lady",
-        "label": "왕비"
+        "label": "궁주"
       },
       {
         "target_id": "monk",
-        "label": "내통 상대"
+        "label": "적대"
       }
     ]
   },
   {
     "id": "court_lady",
-    "name": "왕비",
+    "name": "궁주",
     "portrait": "assets/portraits/court_lady.png",
     "lifespan": "미상",
-    "one_liner": "소지왕의 비",
-    "description": "거문고 갑 속에 숨은 승려와 내통하다 까마귀가 전한 편지로 발각되었다고 전한다.",
+    "one_liner": "궁중의 여인",
+    "description": "거문고 갑 속에 숨은 승려와 몰래 정을 통하다 발각되었다고 전한다. 삼국유사 원문은 '궁주(宮主)'라고만 적었을 뿐 왕비라고 하지 않았다.",
     "relations": [
       {
         "target_id": "soji_king",
-        "label": "남편"
+        "label": "임금"
       }
     ]
   },
@@ -60,6 +60,10 @@
       {
         "target_id": "kim_munryang",
         "label": "현생의 아버지"
+      },
+      {
+        "target_id": "bear_spirit",
+        "label": "적대"
       }
     ]
   },
@@ -146,6 +150,10 @@
       {
         "target_id": "king_sinmun",
         "label": "아들"
+      },
+      {
+        "target_id": "uisang",
+        "label": "신하"
       }
     ]
   },
@@ -526,16 +534,16 @@
     ]
   },
   {
-    "id": "asadal",
-    "name": "아사달",
-    "portrait": "assets/portraits/asadal.png",
-    "lifespan": "전설",
-    "one_liner": "석가탑을 새긴 석공",
-    "description": "불국사 석가탑을 세웠다는 전설 속 석공. '아사달'이라는 이름은 현진건의 소설 '무영탑'(1939)에서 정착되었다.",
+    "id": "stone_mason",
+    "name": "석공",
+    "portrait": "assets/portraits/stone_mason.png",
+    "lifespan": "미상",
+    "one_liner": "석가탑을 세운 당나라 장인",
+    "description": "1740년 「불국사고금창기」에 이름 없이 '장공(匠工)'으로만 전하는, 당나라에서 온 석가탑의 장인. 오늘날 널리 쓰이는 '아사달'이라는 이름은 현진건의 소설 「무영탑」(1938~39)에서 지어진 것이다.",
     "relations": [
       {
         "target_id": "asanyeo",
-        "label": "아내"
+        "label": "누이동생"
       }
     ]
   },
@@ -543,13 +551,13 @@
     "id": "asanyeo",
     "name": "아사녀",
     "portrait": "assets/portraits/asanyeo.png",
-    "lifespan": "전설",
-    "one_liner": "영지에서 탑을 기다린 여인",
-    "description": "탑이 완성되면 그림자가 못에 비치리라는 말을 믿고 기다리다, 끝내 영지에 몸을 던졌다는 전설 속 여인.",
+    "lifespan": "미상",
+    "one_liner": "탑 그림자를 기다린 석공의 누이",
+    "description": "1740년 「불국사고금창기」에 阿斯女라는 이름으로 전하는 석공의 누이동생. 오라비를 찾아왔으나 만나지 못하고, 서쪽 십 리 못에서 탑 그림자가 비치기를 기다렸다고 한다. 아내로 바뀐 것은 1927년 이후의 전승이다.",
     "relations": [
       {
-        "target_id": "asadal",
-        "label": "남편"
+        "target_id": "stone_mason",
+        "label": "오라버니"
       }
     ]
   },
@@ -582,6 +590,34 @@
       {
         "target_id": "king_jinpyeong",
         "label": "옥대를 받은 임금"
+      }
+    ]
+  },
+  {
+    "id": "bear_spirit",
+    "name": "곰 귀신",
+    "portrait": "assets/portraits/bear_spirit.png",
+    "lifespan": "전설",
+    "one_liner": "대성의 꿈에 나타난 곰",
+    "description": "토함산에서 김대성에게 잡힌 곰. 꿈에 귀신으로 변해 따져 묻고, 절을 지어 달라는 약속을 받아냈다고 전한다. 삼국유사 대성효이세부모.",
+    "relations": [
+      {
+        "target_id": "kim_daeseong",
+        "label": "적대"
+      }
+    ]
+  },
+  {
+    "id": "uisang",
+    "name": "의상",
+    "portrait": "assets/portraits/uisang.png",
+    "lifespan": "625~702",
+    "one_liner": "화엄종을 연 신라의 고승",
+    "description": "당에 유학하고 돌아와 신라 화엄종을 열었다. 문무왕이 서라벌에 새 성을 쌓으려 하자 정치가 밝으면 성이 필요 없다고 아뢰어 공사를 그만두게 했다고 전한다.",
+    "relations": [
+      {
+        "target_id": "king_munmu",
+        "label": "임금"
       }
     ]
   }
